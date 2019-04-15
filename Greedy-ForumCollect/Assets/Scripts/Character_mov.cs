@@ -67,14 +67,18 @@ public class Character_mov : MonoBehaviour {
 
     void Orientation()
     {
-        if(direction == Vector2.right)
+        if (!PauseMenu.IsPaused)
         {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        
-        else if(direction == Vector2.left)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
+
+            if (direction == Vector2.right)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+
+            else if (direction == Vector2.left)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
         }
     }
 
