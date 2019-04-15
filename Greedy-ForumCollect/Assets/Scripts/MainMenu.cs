@@ -8,4 +8,11 @@ public class MainMenu : MonoBehaviour
     public void PlayGame() {
         SceneManager.LoadScene("Level1");   
     }
+    public void QuitGame() {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+        Application.Quit();
+
+    }
 }
