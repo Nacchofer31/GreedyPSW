@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CountDownTimer : MonoBehaviour
 {
-    float startingTime = 10f;
+    float startingTime = 300f;
     float currentTime = 0f;
     [SerializeField] Text countdownText;
     // Start is called before the first frame update
