@@ -24,11 +24,14 @@ public class CountDownTimer : MonoBehaviour
             {
                 currentTime -= 1 * Time.deltaTime; 
             }
-            countdownText.text = "Tiempo: " + currentTime.ToString("0.00");
+            printTimer();
 
         }
         else {
             countdownText.text = "FIN!";
         }
+    }
+    void printTimer() {
+        countdownText.text = "Tiempo: " + currentTime.ToString("0.00");
     }
 }
