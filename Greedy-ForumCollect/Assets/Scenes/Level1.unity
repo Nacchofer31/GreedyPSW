@@ -1852,6 +1852,7 @@ GameObject:
   - component: {fileID: 991244021}
   - component: {fileID: 991244024}
   - component: {fileID: 991244023}
+  - component: {fileID: 991244025}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1958,6 +1959,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &991244025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991244020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e014be56c2fda4b9c94d172396138741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSpeed: 0.5
+  rb: {fileID: 0}
 --- !u!1 &1011664116
 GameObject:
   m_ObjectHideFlags: 0
@@ -14664,7 +14679,205 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1558385016}
+    m_ColliderPaths:
+    - - X: -35358
+        Y: 13274659
+      - X: -7419718
+        Y: 13274659
+      - X: -7419718
+        Y: 7292237
+      - X: -35358
+        Y: 7292237
+  - m_Collider: {fileID: 1558385017}
+    m_ColliderPaths:
+    - - X: -35354
+        Y: 5962059
+      - X: -7245117
+        Y: 5962059
+      - X: -7245117
+        Y: 1372511
+      - X: -35354
+        Y: 1372511
+  - m_Collider: {fileID: 1558385038}
+    m_ColliderPaths:
+    - - X: -20675738
+        Y: 5864193
+      - X: -27862466
+        Y: 5864193
+      - X: -27862466
+        Y: 1382921
+      - X: -20675738
+        Y: 1382921
+  - m_Collider: {fileID: 1558385037}
+    m_ColliderPaths:
+    - - X: -20594752
+        Y: 13253947
+      - X: -27781474
+        Y: 13253947
+      - X: -27781474
+        Y: 7314861
+      - X: -20594752
+        Y: 7314861
+  - m_Collider: {fileID: 1558385035}
+    m_ColliderPaths:
+    - - X: -14682500
+        Y: -28371
+      - X: -19115574
+        Y: -28371
+      - X: -19115574
+        Y: -4448344
+      - X: -14682500
+        Y: -4448344
+  - m_Collider: {fileID: 1558385034}
+    m_ColliderPaths:
+    - - X: -14763477
+        Y: 5914535
+      - X: -19196564
+        Y: 5914535
+      - X: -19196564
+        Y: 1544899
+      - X: -14763477
+        Y: 1544899
+  - m_Collider: {fileID: 1558385033}
+    m_ColliderPaths:
+    - - X: -14682491
+        Y: 13253947
+      - X: -19115574
+        Y: 13253947
+      - X: -19115574
+        Y: 7295176
+      - X: -14682491
+        Y: 7295176
+  - m_Collider: {fileID: 1558385032}
+    m_ColliderPaths:
+    - - X: -8770239
+        Y: 13253952
+      - X: -13203319
+        Y: 13253952
+      - X: -13203319
+        Y: 7376162
+      - X: -8770239
+        Y: 7376162
+  - m_Collider: {fileID: 1558385031}
+    m_ColliderPaths:
+    - - X: -8770242
+        Y: 5802893
+      - X: -13203322
+        Y: 5802893
+      - X: -13203322
+        Y: 1463911
+      - X: -8770242
+        Y: 1463911
+  - m_Collider: {fileID: 1558385029}
+    m_ColliderPaths:
+    - - X: -13247042
+        Y: 37271
+      - X: -13231500
+        Y: -5821923
+      - X: -19113810
+        Y: -5889687
+      - X: -19076838
+        Y: -10276605
+      - X: -8882470
+        Y: -10266860
+      - X: -8844289
+        Y: -39372
+  - m_Collider: {fileID: 1558385028}
+    m_ColliderPaths:
+    - - X: -55173
+        Y: 45511
+      - X: -7310003
+        Y: 45511
+      - X: -7310003
+        Y: -10268342
+      - X: -55173
+        Y: -10268342
+  - m_Collider: {fileID: 1558385027}
+    m_ColliderPaths:
+    - - X: 1473541
+        Y: 13306631
+      - X: 1479177
+        Y: 1518697
+      - X: 8803872
+        Y: 1530618
+      - X: 8771896
+        Y: 10294650
+      - X: 14614772
+        Y: 10352538
+      - X: 14666704
+        Y: 13176265
+  - m_Collider: {fileID: 1558385026}
+    m_ColliderPaths:
+    - - X: 14728934
+        Y: 8812789
+      - X: 10245022
+        Y: 8812789
+      - X: 10245022
+        Y: 1534161
+      - X: 14728934
+        Y: 1534161
+  - m_Collider: {fileID: 1558385025}
+    m_ColliderPaths:
+    - - X: 20521376
+        Y: 8812792
+      - X: 16100430
+        Y: 8812792
+      - X: 16100430
+        Y: 1408238
+      - X: 20521376
+        Y: 1408238
+  - m_Collider: {fileID: 1558385024}
+    m_ColliderPaths:
+    - - X: 20458420
+        Y: -1800
+      - X: 16163383
+        Y: -1800
+      - X: 16163383
+        Y: -7406353
+      - X: 20458420
+        Y: -7406353
+  - m_Collider: {fileID: 1558385023}
+    m_ColliderPaths:
+    - - X: 32268450
+        Y: 8759370
+      - X: 29385300
+        Y: 8759370
+      - X: 29385300
+        Y: 1408238
+      - X: 32268450
+        Y: 1408238
+  - m_Collider: {fileID: 1558385022}
+    m_ColliderPaths:
+    - - X: 36740664
+        Y: 8798298
+      - X: 33818800
+        Y: 8798298
+      - X: 33818800
+        Y: 1479935
+      - X: 36740664
+        Y: 1479935
+  - m_Collider: {fileID: 1558385021}
+    m_ColliderPaths:
+    - - X: 36839856
+        Y: -96972
+      - X: 33730616
+        Y: -96972
+      - X: 33730616
+        Y: -7249987
+      - X: 36839856
+        Y: -7249987
+  - m_Collider: {fileID: 1558385020}
+    m_ColliderPaths:
+    - - X: 32430810
+        Y: -8790
+      - X: 29321568
+        Y: -8790
+      - X: 29321568
+        Y: -7338160
+      - X: 32430810
+        Y: -7338160
   m_CompositePaths:
     m_Paths:
     - - {x: 0.8803872, y: 0.1530618}
@@ -14817,7 +15030,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1592522763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14910,7 +15123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.99998, y: 249}
+  m_AnchoredPosition: {x: 0.9999695, y: 249}
   m_SizeDelta: {x: -1472.6, y: -927.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1593001758
@@ -15214,7 +15427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!156049354 &1986758314
 Grid:
   m_ObjectHideFlags: 0
