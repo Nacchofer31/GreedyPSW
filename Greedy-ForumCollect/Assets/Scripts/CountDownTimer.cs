@@ -20,8 +20,12 @@ public class CountDownTimer : MonoBehaviour
     {
         if (currentTime >= 0)
         {
-            currentTime -= 1 * Time.deltaTime;
+            if (!PauseMenu.IsPaused)
+            {
+                currentTime -= 1 * Time.deltaTime; 
+            }
             countdownText.text = "Tiempo: " + currentTime.ToString("0.00");
+
         }
         else {
             countdownText.text = "FIN!";
