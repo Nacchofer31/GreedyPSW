@@ -72,12 +72,13 @@ public class Character_mov : MonoBehaviour {
 
             if (direction == Vector2.right)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(0.23215f, 0.23215f, 1);
             }
 
             else if (direction == Vector2.left)
+
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(-0.23215f, 0.23215f, 1);
             }
         }
     }
