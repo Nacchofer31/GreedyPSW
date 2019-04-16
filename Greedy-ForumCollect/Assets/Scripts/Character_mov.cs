@@ -83,4 +83,9 @@ public class Character_mov : MonoBehaviour {
         }
     }
 
+    void Colision()
+    {
+        rb.
+    }
+
 }
