@@ -5,15 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class Character_mov : MonoBehaviour {
 
+    //Initial variables
     private Vector2 direction = Vector2.zero;
+    private Vector2 InitialPosition;
+    int life;
 
-    public float RunSpeed = 0.5f;
     Rigidbody2D rb;
+    public float RunSpeed = 0.5f;
 
+    public GameObject Lifes;
+    
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        InitialPosition = rb.position;
+        life = 3;
     }
 
     void Update()
@@ -98,7 +105,13 @@ public class Character_mov : MonoBehaviour {
 
     void Respawn()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if(life > 0)
+        {
+            Lifes.transform.Find("Life_1").gameObject.SetActive(false);
+            
+            rb.transform.position = InitialPosition;
+        }
+        
     }
 
 }
