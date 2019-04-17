@@ -12,7 +12,6 @@ public class enemy_ia : MonoBehaviour{
     public float runSpeed = 0.5f;
     Rigidbody2D rb;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,8 +35,8 @@ public class enemy_ia : MonoBehaviour{
     void ChooseNextMove()
     {
 
-     direccion = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized;
-     movimientoPorSegundo = direccion * runSpeed;  
+         direccion = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized;
+         movimientoPorSegundo = direccion * runSpeed;  
 
     }
 
