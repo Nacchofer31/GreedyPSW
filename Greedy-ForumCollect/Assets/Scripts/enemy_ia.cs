@@ -9,8 +9,8 @@ public class enemy_ia : MonoBehaviour{
     private Vector2 direccion = Vector2.zero;
     private Vector2 movimientoPorSegundo;
 
-    public float runSpeed = 0.9f;
-    public Rigidbody2D rb;
+    public float runSpeed = 0.5f;
+    Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -31,15 +31,14 @@ public class enemy_ia : MonoBehaviour{
         Move();
         Orientation();
         
-    }
-
-    
+    } 
 
     void ChooseNextMove()
     {
 
      direccion = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized;
      movimientoPorSegundo = direccion * runSpeed;  
+
     }
 
     void FixedUpdate()
@@ -64,6 +63,14 @@ public class enemy_ia : MonoBehaviour{
         else if(direccion == Vector2.left)
         {
             transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Map"))
+        {
+            ChooseNextMove();
         }
     }
 
