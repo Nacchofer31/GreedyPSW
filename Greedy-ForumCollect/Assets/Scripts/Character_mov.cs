@@ -15,7 +15,6 @@ public class Character_mov : MonoBehaviour {
 
     public GameObject Lifes;
     
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -60,7 +59,6 @@ public class Character_mov : MonoBehaviour {
         }
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         Move();
@@ -105,11 +103,17 @@ public class Character_mov : MonoBehaviour {
 
     void Respawn()
     {
-        if(life > 0)
+        if(life > 1)
         {
-            Lifes.transform.Find("Life_1").gameObject.SetActive(false);
+            Lifes.transform.Find("Life_" + (4-life).ToString()).gameObject.SetActive(false);
+            life--;
             
             rb.transform.position = InitialPosition;
+        }
+        else
+        {
+            Debug.Log("You Died");
+            SceneManager.LoadScene("MainMenu");
         }
         
     }
