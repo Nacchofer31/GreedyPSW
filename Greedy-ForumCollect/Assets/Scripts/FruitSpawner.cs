@@ -5,6 +5,7 @@ using UnityEngine;
 public class FruitSpawner : MonoBehaviour
 {
     private int rand;
+    public bool canEat = false;
 
     public Sprite[] Sprite_Pic;
     // Start is called before the first frame update
@@ -18,5 +19,13 @@ public class FruitSpawner : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D entity)
+    {
+        if(entity.gameObject.CompareTag("Player"))
+        {
+            //Character_mov.
+        }
     }
 }

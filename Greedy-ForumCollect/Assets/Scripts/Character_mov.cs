@@ -10,10 +10,14 @@ public class Character_mov : MonoBehaviour {
     private Vector2 InitialPosition;
     int life;
 
+    Collider2D CollisionDetector;
     Rigidbody2D rb;
+
     public float RunSpeed = 0.5f;
 
     public GameObject Lifes;
+    public GameObject Foods;
+    public Interactable focus;
     
     void Start()
     {
@@ -55,7 +59,11 @@ public class Character_mov : MonoBehaviour {
 
         else if(Input.GetKey(KeyCode.Space))
         {
-
+          if(focus.CompareTag("Food"))
+            {
+                Foods.transform.Find(focus.transform.name).gameObject.SetActive(false);
+                RemoveFocus();
+            } 
         }
     }
 
@@ -94,6 +102,15 @@ public class Character_mov : MonoBehaviour {
         {
             Die();
         }
+        if(other.gameObject.CompareTag("Food"))
+        {
+            Interactable food = other.GetComponent<Interactable>();
+            
+            if(food != null)
+            {
+                SetFocus(food);
+            }
+        }
     }
 
     void Die()
@@ -116,6 +133,29 @@ public class Character_mov : MonoBehaviour {
             SceneManager.LoadScene("MainMenu");
         }
         
+    }
+
+    void SetFocus(Interactable newFocus)
+    {
+        if (newFocus != focus)
+        {
+            if(focus != null)
+            {
+                focus.onDefocused();
+            }
+            focus = newFocus;
+        }
+        newFocus.onFocused(transform);
+    }
+
+    void RemoveFocus()
+    {
+        if (focus != null)
+        {
+            focus.onDefocused();
+        }
+
+        focus = null;
     }
 
 }
