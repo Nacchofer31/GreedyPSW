@@ -6,29 +6,38 @@ public class enemy_ia : MonoBehaviour{
 
     private float temporizadorUltimaDireccion;
     private readonly float temporizadorCambioDeDireccion = 3f;
-    private Vector2 direccion = Vector2.zero;
+    public Vector2 direccion = Vector2.zero;
     private Vector2 movimientoPorSegundo;
+
+    public Node ActualNode, TargetNode;
 
     public float runSpeed = 0.5f;
     Rigidbody2D rb;
+
+    public int error = 0;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         temporizadorUltimaDireccion = 0f;
+        ChooseNewNode(ActualNode);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - temporizadorUltimaDireccion > temporizadorCambioDeDireccion){
+        /*if (Time.time - temporizadorUltimaDireccion > temporizadorCambioDeDireccion){
             
             temporizadorUltimaDireccion = Time.time;
             ChooseNextMove();
         }
         
         Move();
-        Orientation();
+        Orientation();*/
+
+        //ChooseNewNode(ActualNode);
+
+        //Move();
         
     } 
 
@@ -47,8 +56,15 @@ public class enemy_ia : MonoBehaviour{
 
     void Move()
     {
-        transform.position = new Vector2(transform.position.x + (movimientoPorSegundo.x * Time.deltaTime), 
-        transform.position.y + (movimientoPorSegundo.y * Time.deltaTime));
+        if (transform.position != TargetNode.transform.position)
+        {
+            transform.position = new Vector2(transform.position.x + (movimientoPorSegundo.x * Time.deltaTime),
+            transform.position.y + (movimientoPorSegundo.y * Time.deltaTime));
+        }
+        else
+        {
+            ChooseNewNode(TargetNode);
+        }
     }
 
 
@@ -69,7 +85,60 @@ public class enemy_ia : MonoBehaviour{
     {
         if (other.gameObject.CompareTag("Map"))
         {
-            ChooseNextMove();
+            error++;
+            if(error >= 10)
+            {
+                ChooseNewNode(ActualNode);
+            }
+        }
+
+        if(other.gameObject.CompareTag("Node"))
+        {
+            Node NewNode = other.gameObject.GetComponent<Node>();
+            ChooseNewNode(NewNode);
+        }
+    }
+
+    void ChooseNewNode(Node Act)
+    {
+        bool NewPosition = false;
+        error = 0;
+        while (!NewPosition) {
+            int pos = Random.Range(0, Act.NodeNeighbour.Length);
+            Node newNode = Act.NodeNeighbour[pos];
+            if (newNode != ActualNode)
+            {
+                if(newNode.Position.x == ActualNode.Position.x)
+                {
+
+                    if (newNode.Position.y < ActualNode.Position.y)
+                    {
+                        direccion = Vector2.down;
+                    }
+                    else
+                    {
+                        direccion = Vector2.up;
+                    }
+                }
+                else
+                {
+                    if (newNode.Position.x < ActualNode.Position.x)
+                    {
+                        direccion = Vector2.left;
+                        transform.localScale = new Vector3(-0.23215f, 0.23215f, 0.23215f);
+                    }
+                    else
+                    {
+                        direccion = Vector2.right;
+                        transform.localScale = new Vector3(0.23215f, 0.23215f, 0.23215f);
+                    }
+                }         
+                movimientoPorSegundo = direccion * runSpeed;
+                ActualNode = Act;
+                NewPosition = true;
+                TargetNode = newNode;
+                
+            }
         }
     }
 
