@@ -676,10 +676,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 222155530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414497863df3ed94e9432124a43f72c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b0b546d3e31a3c449bddfecbc9ce89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 3
   isFocus: 0
+  InteractionTransform: {fileID: 222155535}
 --- !u!1 &229804378
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,7 +809,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.016996674
+  m_Mass: 0.011489322
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -891,8 +893,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.047606815, y: -0.19042572}
-  m_Size: {x: 0.63340336, y: 0.63340336}
+  m_Offset: {x: -0.0085974205, y: -0.15670358}
+  m_Size: {x: 0.5209949, y: 0.5209951}
   m_Direction: 0
 --- !u!1 &261659007
 GameObject:
@@ -1063,10 +1065,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 261659007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414497863df3ed94e9432124a43f72c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b0b546d3e31a3c449bddfecbc9ce89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 0.1
   isFocus: 0
+  InteractionTransform: {fileID: 261659010}
 --- !u!1 &276184831
 GameObject:
   m_ObjectHideFlags: 0
@@ -3514,10 +3518,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1350194841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414497863df3ed94e9432124a43f72c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b0b546d3e31a3c449bddfecbc9ce89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 3
   isFocus: 0
+  InteractionTransform: {fileID: 1350194846}
 --- !u!1 &1356922022
 GameObject:
   m_ObjectHideFlags: 0

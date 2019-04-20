@@ -10,6 +10,7 @@ public class Character_mov : MonoBehaviour {
     private Vector2 InitialPosition;
     int life;
 
+    [Header("Physics")]
     Collider2D CollisionDetector;
     Rigidbody2D rb;
 
@@ -18,7 +19,7 @@ public class Character_mov : MonoBehaviour {
     public GameObject Lifes;
     public GameObject Foods;
     public Interactable focus;
-    
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,6 +34,8 @@ public class Character_mov : MonoBehaviour {
         Orientation();
 
         Move();
+
+        FocusOut();
     }
 
     void Tecla()
@@ -59,9 +62,8 @@ public class Character_mov : MonoBehaviour {
 
         else if(Input.GetKey(KeyCode.Space))
         {
-          if(focus.CompareTag("Food"))
+          if(focus != null && focus.CompareTag("Food"))
             {
-                Foods.transform.Find(focus.transform.name).gameObject.SetActive(false);
                 RemoveFocus();
             } 
         }
@@ -104,11 +106,12 @@ public class Character_mov : MonoBehaviour {
         }
         if(other.gameObject.CompareTag("Food"))
         {
-            Interactable food = other.GetComponent<Interactable>();
+            Fruit food = other.GetComponent<Fruit>();
             
             if(food != null)
             {
-                SetFocus(food);
+                Interactable newFocus = food;
+                SetFocus(newFocus);
             }
         }
     }
@@ -146,6 +149,8 @@ public class Character_mov : MonoBehaviour {
             focus = newFocus;
         }
         newFocus.onFocused(transform);
+        
+
     }
 
     void RemoveFocus()
@@ -156,6 +161,18 @@ public class Character_mov : MonoBehaviour {
         }
 
         focus = null;
+    }
+
+    void FocusOut()
+    {
+        if(focus != null)
+        {
+            float distance = Vector3.Distance(rb.transform.position, focus.transform.position);
+            if (distance - 1f > focus.radius)
+            {
+                RemoveFocus();
+            }
+        }
     }
 
 }

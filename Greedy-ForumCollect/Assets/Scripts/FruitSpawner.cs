@@ -20,12 +20,4 @@ public class FruitSpawner : MonoBehaviour
     {
         
     }
-
-    private void OnTriggerEnter2D(Collider2D entity)
-    {
-        if(entity.gameObject.CompareTag("Player"))
-        {
-            //Character_mov.
-        }
-    }
 }

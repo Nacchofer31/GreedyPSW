@@ -2,10 +2,12 @@
 
 public class Interactable : MonoBehaviour
 {
-    float radius = 3f;
-
-    public bool isFocus = false;
+    public float radius = 0.1f;
+    
     Transform Entity;
+    
+    public bool isFocus = false;
+    public Transform InteractionTransform;
 
     public virtual void Interact()
     {
@@ -14,10 +16,10 @@ public class Interactable : MonoBehaviour
 
     void Update()
     {
-        if(isFocus)
+        if(isFocus && Input.GetKeyDown(KeyCode.Space))
         {
-            float distance = Vector3.Distance(Entity.position, transform.position);
-            if(distance <= radius)
+            float distance = Vector3.Distance(Entity.position, InteractionTransform.position);
+            if(distance -1f <= radius)
             {
                 Debug.Log("INTERACT");
                 Interact();
@@ -40,6 +42,7 @@ public class Interactable : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.DrawWireSphere(InteractionTransform.position, radius);
     }
+
 }
