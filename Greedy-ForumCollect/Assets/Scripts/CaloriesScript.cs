@@ -16,6 +16,6 @@ public class CaloriesScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        caloriesText.text = "Calories: " + caloriesValue;
+        caloriesText.text = "CALORIES: " + caloriesValue;
     }
 }

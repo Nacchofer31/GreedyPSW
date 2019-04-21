@@ -28,10 +28,10 @@ public class CountDownTimer : MonoBehaviour
 
         }
         else {
-            countdownText.text = "FIN!";
+            countdownText.text = "FINISH!";
         }
     }
     void printTimer() {
-        countdownText.text = "Tiempo: " + currentTime.ToString("0.00");
+        countdownText.text = "TIME: " + currentTime.ToString("0.00");
     }
 }
