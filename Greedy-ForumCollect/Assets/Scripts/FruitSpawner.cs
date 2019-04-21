@@ -8,16 +8,42 @@ public class FruitSpawner : MonoBehaviour
     public bool canEat = false;
 
     public Sprite[] Sprite_Pic;
+    public Sprite Sprite_selected;
+    public int calories;
+
     // Start is called before the first frame update
     void Start()
     {
         rand = Random.Range(0, Sprite_Pic.Length);
-        GetComponent<SpriteRenderer>().sprite = Sprite_Pic[rand];
+        Sprite_selected = Sprite_Pic[rand];
+        GetComponent<SpriteRenderer>().sprite = Sprite_selected;
+        Debug.Log(Sprite_selected.name.Substring(4, 1));
+        switch (Sprite_selected.name.Substring(4,1))
+        {
+            case "S":
+                calories = 20;
+                break;
+            case "A":
+                calories = 10;
+                break;
+            case "B":
+                calories = 5;
+                break;
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.name == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 }
