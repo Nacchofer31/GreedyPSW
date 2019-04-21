@@ -9,7 +9,7 @@ public class Fruit : Interactable
         PickUp();
     }
 
-    void PickUp()
+    public void PickUp()
     {
         Debug.Log("Picking up item");
         Destroy(gameObject);

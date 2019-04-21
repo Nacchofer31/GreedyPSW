@@ -19,7 +19,7 @@ public class Interactable : MonoBehaviour
         if(isFocus && Input.GetKeyDown(KeyCode.Space))
         {
             float distance = Vector3.Distance(Entity.position, InteractionTransform.position);
-            if(distance -1f <= radius)
+            if(distance <= radius)
             {
                 Debug.Log("INTERACT");
                 Interact();

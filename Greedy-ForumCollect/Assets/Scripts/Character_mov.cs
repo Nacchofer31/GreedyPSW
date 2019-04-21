@@ -64,6 +64,9 @@ public class Character_mov : MonoBehaviour {
         {
           if(focus != null && focus.CompareTag("Food"))
             {
+                FruitSpawner fruit = focus.GetComponent<FruitSpawner>();
+                CaloriesScript.caloriesValue += fruit.calories;
+                focus.Interact();
                 RemoveFocus();
             } 
         }
@@ -106,9 +109,8 @@ public class Character_mov : MonoBehaviour {
         }
         if(other.gameObject.CompareTag("Food"))
         {
-            FruitSpawner fruit = other.GetComponent<FruitSpawner>();
-            CaloriesScript.caloriesValue += fruit.calories;
-
+            Interactable newFocus = other.GetComponent<Fruit>();
+            SetFocus(newFocus);
         }
     }
 
