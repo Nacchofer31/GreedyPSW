@@ -8,6 +8,9 @@ public class Character_mov : MonoBehaviour {
     //Initial variables
     private Vector2 direction = Vector2.zero;
     private Vector2 InitialPosition;
+    private float currentHealth;
+    private bool over100 = false;
+
     int life;
 
     [Header("Physics")]
@@ -19,12 +22,14 @@ public class Character_mov : MonoBehaviour {
     public GameObject Lifes;
     public GameObject Foods;
     public Interactable focus;
+    public HealthBar healthBar;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         InitialPosition = rb.position;
         life = 3;
+        healthBar.setSize(1f);
     }
 
     void Update()
@@ -66,6 +71,9 @@ public class Character_mov : MonoBehaviour {
             {
                 FruitSpawner fruit = focus.GetComponent<FruitSpawner>();
                 CaloriesScript.caloriesValue += fruit.calories;
+
+                if(CaloriesScript.caloriesValue >= 100 && !over100) { healthBar.setSize(healthBar.getSize() + 0.1f); over100 = true; }
+
                 focus.Interact();
                 RemoveFocus();
             } 
@@ -106,6 +114,9 @@ public class Character_mov : MonoBehaviour {
         if (other.gameObject.CompareTag("Enemy"))
         {
             Die();
+            currentHealth = healthBar.getSize();
+            healthBar.setSize(currentHealth - 0.3f);
+
         }
         if(other.gameObject.CompareTag("Food"))
         {
