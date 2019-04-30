@@ -61,10 +61,7 @@ public class enemy_ia : MonoBehaviour{
             transform.position = new Vector2(transform.position.x + (movimientoPorSegundo.x * Time.deltaTime),
             transform.position.y + (movimientoPorSegundo.y * Time.deltaTime));
         }
-        else
-        {
-            ChooseNewNode(TargetNode);
-        }
+        
     }
 
 
@@ -85,11 +82,7 @@ public class enemy_ia : MonoBehaviour{
     {
         if (other.gameObject.CompareTag("Map"))
         {
-            error++;
-            if(error >= 10)
-            {
-                ChooseNewNode(ActualNode);
-            }
+            ChooseNewNode(ActualNode);
         }
 
         if(other.gameObject.CompareTag("Node"))
@@ -102,11 +95,12 @@ public class enemy_ia : MonoBehaviour{
     void ChooseNewNode(Node Act)
     {
         bool NewPosition = false;
-        error = 0;
+        Node PreviousNode = ActualNode;
+        ActualNode = Act;
         while (!NewPosition) {
             int pos = Random.Range(0, Act.NodeNeighbour.Length);
-            Node newNode = Act.NodeNeighbour[pos];
-            if (newNode != ActualNode)
+            Node newNode = ActualNode.NodeNeighbour[pos];
+            if (newNode != PreviousNode)
             {
                 if(newNode.Position.x == ActualNode.Position.x)
                 {
@@ -134,7 +128,6 @@ public class enemy_ia : MonoBehaviour{
                     }
                 }         
                 movimientoPorSegundo = direccion * runSpeed;
-                ActualNode = Act;
                 NewPosition = true;
                 TargetNode = newNode;
                 
