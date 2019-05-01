@@ -24,6 +24,9 @@ public class Character_mov : MonoBehaviour {
     public Interactable focus;
     public HealthBar healthBar;
 
+    [Header("Powers")]
+    private Invencibility inv;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -114,6 +117,7 @@ public class Character_mov : MonoBehaviour {
         if (other.gameObject.CompareTag("Enemy"))
         {
             Die();
+            inv.GetInvulnerable(rb.GetComponent<Collider2D>(), other);
             currentHealth = healthBar.getSize();
             healthBar.setSize(currentHealth - 0.3f);
 
