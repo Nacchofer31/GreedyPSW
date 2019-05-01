@@ -25,7 +25,7 @@ public class Character_mov : MonoBehaviour {
     public HealthBar healthBar;
 
     [Header("Powers")]
-    private Invencibility inv;
+    public Powers powers;
 
     void Start()
     {
@@ -33,6 +33,7 @@ public class Character_mov : MonoBehaviour {
         InitialPosition = rb.position;
         life = 3;
         healthBar.setSize(1f);
+        powers = new Powers();
     }
 
     void Update()
@@ -68,18 +69,46 @@ public class Character_mov : MonoBehaviour {
             direction = Vector2.left;
         }
 
-        else if(Input.GetKey(KeyCode.Space))
+        else if (Input.GetKey(KeyCode.Space))
         {
-          if(focus != null && focus.CompareTag("Food"))
+            if (focus != null && focus.CompareTag("Food"))
             {
                 FruitSpawner fruit = focus.GetComponent<FruitSpawner>();
                 CaloriesScript.caloriesValue += fruit.calories;
 
-                if(CaloriesScript.caloriesValue >= 100 && !over100) { healthBar.setSize(healthBar.getSize() + 0.1f); over100 = true; }
+                if (CaloriesScript.caloriesValue >= 100 && !over100) { healthBar.setSize(healthBar.getSize() + 0.1f); over100 = true; }
 
                 focus.Interact();
                 RemoveFocus();
-            } 
+            }
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if(!powers.invencibility)
+            {
+                powers.StartInvulnerable();
+                Debug.Log("Invecibility ON");
+            }
+            else
+            {
+                powers.StopInvulnerable();
+                Debug.Log("Invecibility OFF");
+            }
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if (!powers.superSpeed)
+            {
+                RunSpeed += powers.StartSuperSpeed();
+                Debug.Log("SuperSpeed ON");
+            }
+            else
+            {
+                RunSpeed += powers.StopSuperSpeed();
+                Debug.Log("SuperSpeed OFF");
+            }
         }
     }
 
@@ -116,10 +145,19 @@ public class Character_mov : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Die();
-            inv.GetInvulnerable(rb.GetComponent<Collider2D>(), other);
-            currentHealth = healthBar.getSize();
-            healthBar.setSize(currentHealth - 0.3f);
+            if(!powers.invencibility)
+            {
+                Die();
+                powers.StartInvulnerable();
+                currentHealth = healthBar.getSize();
+                healthBar.setSize(currentHealth - 0.3f);
+            }
+            else
+            {
+                enemy_ia Enemy = (enemy_ia) other.gameObject.GetComponent<enemy_ia>();
+                KillEnemy(Enemy);
+            }
+                
 
         }
         if(other.gameObject.CompareTag("Food"))
@@ -132,6 +170,11 @@ public class Character_mov : MonoBehaviour {
     void Die()
     {
         Respawn();
+    }
+
+    void KillEnemy(enemy_ia other)
+    {
+        other.Restart();
     }
 
     void Respawn()

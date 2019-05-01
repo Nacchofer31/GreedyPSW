@@ -9,6 +9,9 @@ public class enemy_ia : MonoBehaviour{
     public Vector2 direccion = Vector2.zero;
     private Vector2 movimientoPorSegundo;
 
+    [Header("Basic Elements")]
+    public Vector2 InitialPosition;
+
     public Node ActualNode, TargetNode;
 
     public float runSpeed = 0.5f;
@@ -19,6 +22,7 @@ public class enemy_ia : MonoBehaviour{
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        InitialPosition = rb.transform.position;
         temporizadorUltimaDireccion = 0f;
         ChooseNewNode(ActualNode);
     }
@@ -133,6 +137,12 @@ public class enemy_ia : MonoBehaviour{
                 
             }
         }
+    }
+
+    public void Restart()
+    {
+        rb.transform.position = InitialPosition;
+        Start();
     }
 
 }
