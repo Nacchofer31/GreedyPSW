@@ -944,6 +944,7 @@ MonoBehaviour:
   radius: 0.1
   isFocus: 0
   InteractionTransform: {fileID: 222155535}
+  effect: {fileID: 8749221949765072050, guid: 2ad1bc6ef9ea9864da9aac7bd7e4c55f, type: 3}
 --- !u!1 &229804378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,6 +1374,7 @@ MonoBehaviour:
   radius: 0.1
   isFocus: 0
   InteractionTransform: {fileID: 261659010}
+  effect: {fileID: 8749221949765072050, guid: 2ad1bc6ef9ea9864da9aac7bd7e4c55f, type: 3}
 --- !u!1 &276184831
 GameObject:
   m_ObjectHideFlags: 0
@@ -5623,6 +5625,7 @@ MonoBehaviour:
   radius: 0.1
   isFocus: 0
   InteractionTransform: {fileID: 1350194846}
+  effect: {fileID: 8749221949765072050, guid: 2ad1bc6ef9ea9864da9aac7bd7e4c55f, type: 3}
 --- !u!1 &1356922022
 GameObject:
   m_ObjectHideFlags: 0
