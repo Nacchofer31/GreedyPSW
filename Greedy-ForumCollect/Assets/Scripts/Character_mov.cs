@@ -147,8 +147,8 @@ public class Character_mov : MonoBehaviour {
         {
             if(!powers.invencibility)
             {
-                Die();
                 powers.StartInvulnerable();
+                Die();
                 currentHealth = healthBar.getSize();
                 healthBar.setSize(currentHealth - 0.3f);
             }
@@ -170,6 +170,7 @@ public class Character_mov : MonoBehaviour {
     void Die()
     {
         Respawn();
+        powers.StopInvulnerable();
     }
 
     void KillEnemy(enemy_ia other)

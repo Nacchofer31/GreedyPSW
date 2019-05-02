@@ -5,7 +5,7 @@ using UnityEngine;
 public class enemy_ia : MonoBehaviour{
 
     private float temporizadorUltimaDireccion;
-    private readonly float temporizadorCambioDeDireccion = 3f;
+    //private readonly float temporizadorCambioDeDireccion = 3f;
     public Vector2 direccion = Vector2.zero;
     private Vector2 movimientoPorSegundo;
 

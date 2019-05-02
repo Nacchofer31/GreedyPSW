@@ -2,22 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Powers : MonoBehaviour
+public class Powers
 {
     public bool invencibility = false;
     public bool superSpeed = false;
     public bool invisibility = false;
-    
-    void Start()
-    {
-
-    }
-
-   
-    void Update()
-    {
-        
-    }
 
     public void StartInvulnerable()
     {
