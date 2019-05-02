@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Character_mov : MonoBehaviour {
 
+    GameOver GameOverScene;
     //Initial variables
     private Vector2 direction = Vector2.zero;
     private Vector2 InitialPosition;
     private float currentHealth;
     private bool over100 = false;
+    
 
     int life;
 
@@ -190,7 +192,8 @@ public class Character_mov : MonoBehaviour {
         else
         {
             Debug.Log("You Died");
-            SceneManager.LoadScene("MainMenu");
+            GameOverScene.chargingScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("GameOver");
         }
         
     }
