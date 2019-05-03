@@ -89,10 +89,15 @@ public class enemy_ia : MonoBehaviour{
             ChooseNewNode(ActualNode);
         }
 
-        if(other.gameObject.CompareTag("Node"))
+        else if(other.gameObject.CompareTag("Node"))
         {
             Node NewNode = other.gameObject.GetComponent<Node>();
             ChooseNewNode(NewNode);
+        }
+
+        else if(other.gameObject.CompareTag("Enemy"))
+        {
+            movimientoPorSegundo = movimientoPorSegundo * -1;
         }
     }
 
