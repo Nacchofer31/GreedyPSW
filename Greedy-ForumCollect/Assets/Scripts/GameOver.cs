@@ -5,16 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    private string previousScene;
-
-    public void chargingScene(string scene) {
-        previousScene = scene;
-    }
 
     public void restartLevel()
     {
         Debug.Log("TRY AGAIN PREVIOUS LEVEL");
-        SceneManager.LoadScene(previousScene);
+        string sceneName = PlayerPrefs.GetString("lastLoadedScene");
+        SceneManager.LoadScene(sceneName);
     }
 
     public void returningToMenu() {

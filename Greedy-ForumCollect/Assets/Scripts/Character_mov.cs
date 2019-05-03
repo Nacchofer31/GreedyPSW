@@ -192,7 +192,7 @@ public class Character_mov : MonoBehaviour {
         else
         {
             Debug.Log("You Died");
-            GameOverScene.chargingScene(SceneManager.GetActiveScene().name);
+            PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene("GameOver");
         }
         
