@@ -16,8 +16,8 @@ public class Character_mov : MonoBehaviour {
     int life;
 
     [Header("Physics")]
-    Collider2D CollisionDetector;
     Rigidbody2D rb;
+    Animator animations;
 
     public float RunSpeed = 0.5f;
 
@@ -31,6 +31,7 @@ public class Character_mov : MonoBehaviour {
 
     void Start()
     {
+        animations = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         InitialPosition = rb.position;
         life = 3;
@@ -51,6 +52,7 @@ public class Character_mov : MonoBehaviour {
 
     void Tecla()
     {
+        
         if (Input.GetKey(KeyCode.UpArrow))
         {
             direction = Vector2.up;
@@ -112,6 +114,11 @@ public class Character_mov : MonoBehaviour {
                 Debug.Log("SuperSpeed OFF");
             }
         }
+
+        else
+        {
+            direction = Vector2.zero;
+        }
     }
 
     void FixedUpdate()
@@ -121,8 +128,34 @@ public class Character_mov : MonoBehaviour {
 
     void Move()
     {
-        transform.localPosition += (Vector3)(direction * RunSpeed) * Time.deltaTime;
-        direction = Vector2.zero;
+        if(direction != Vector2.zero)
+        {
+            transform.localPosition += (Vector3)(direction * RunSpeed) * Time.deltaTime;
+            direction = Vector2.zero;
+            if(!powers.superSpeed)
+            {
+                animations.SetBool("IsMoving", true);
+            }
+            else
+            {
+                animations.SetBool("IsRunning", true);
+            }
+            
+        }
+
+        else
+        {
+            if(!powers.superSpeed)
+            {
+                animations.SetBool("IsMoving", false);
+            }
+            else
+            {
+                animations.SetBool("IsRunning", false);
+            }
+            
+        }
+        
     }
 
     void Orientation()
@@ -152,25 +185,31 @@ public class Character_mov : MonoBehaviour {
                 powers.StartInvulnerable();
                 Die();
                 currentHealth = healthBar.getSize();
-                healthBar.setSize(currentHealth - 0.3f);
+                healthBar.setSize(currentHealth - 0.3333f);
             }
+
             else
             {
                 enemy_ia Enemy = (enemy_ia) other.gameObject.GetComponent<enemy_ia>();
                 KillEnemy(Enemy);
             }
                 
-
         }
+
         if(other.gameObject.CompareTag("Food"))
         {
             Interactable newFocus = other.GetComponent<Fruit>();
             SetFocus(newFocus);
         }
     }
-
+    void Hurt()
+    {
+        animations.SetBool("IsDying", true);
+    }
     void Die()
     {
+        Hurt();
+        //Invoke("Respawn", 1f);
         Respawn();
         powers.StopInvulnerable();
     }
@@ -188,6 +227,7 @@ public class Character_mov : MonoBehaviour {
             life--;
             
             rb.transform.position = InitialPosition;
+            Invoke("StopDying", 1f);
         }
         else
         {
@@ -196,6 +236,11 @@ public class Character_mov : MonoBehaviour {
             SceneManager.LoadScene("GameOver");
         }
         
+    }
+
+    void StopDying()
+    {
+        animations.SetBool("IsDying", false);
     }
 
     void SetFocus(Interactable newFocus)
