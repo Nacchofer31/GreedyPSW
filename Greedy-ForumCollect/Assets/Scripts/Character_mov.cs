@@ -10,7 +10,6 @@ public class Character_mov : MonoBehaviour {
     private Vector2 direction = Vector2.zero;
     private Vector2 InitialPosition;
     private float currentHealth;
-    private bool over100 = false;
     
 
     int life;
@@ -35,7 +34,7 @@ public class Character_mov : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         InitialPosition = rb.position;
         life = 3;
-        healthBar.setSize(1f);
+        healthBar.setSize(0f);
         powers = new Powers();
     }
 
@@ -80,7 +79,7 @@ public class Character_mov : MonoBehaviour {
                 FruitSpawner fruit = focus.GetComponent<FruitSpawner>();
                 CaloriesScript.caloriesValue += fruit.calories;
 
-                if (CaloriesScript.caloriesValue >= 100 && !over100) { healthBar.setSize(healthBar.getSize() + 0.1f); over100 = true; }
+                if (CaloriesScript.caloriesValue >= 100) { healthBar.setSize(healthBar.getSize() - 0.1f); CaloriesScript.caloriesValue = 0; }
 
                 focus.Interact();
                 RemoveFocus();
@@ -185,7 +184,7 @@ public class Character_mov : MonoBehaviour {
                 powers.StartInvulnerable();
                 Die();
                 currentHealth = healthBar.getSize();
-                healthBar.setSize(currentHealth - 0.3333f);
+                healthBar.setSize(currentHealth + 0.3333f);
             }
 
             else
@@ -232,6 +231,7 @@ public class Character_mov : MonoBehaviour {
         else
         {
             Debug.Log("You Died");
+            CaloriesScript.caloriesValue = 0;
             PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene("GameOver");
         }

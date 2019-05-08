@@ -19,8 +19,8 @@ public class HealthBar : MonoBehaviour
 
     public void setSize(float sizeNormalize)
     {
-        if (sizeNormalize > 1f) { bar.localScale = new Vector3(1f, 1f); }
-        else if (sizeNormalize < 0f) { bar.localScale = new Vector3(0f, 1f); }
+        if (sizeNormalize < 0f) { bar.localScale = new Vector3(0f, 1f); }
+        else if (sizeNormalize >   1f) { bar.localScale = new Vector3(0f, 1f); }
         else { bar.localScale = new Vector3(sizeNormalize, 1f); }
     }
 
