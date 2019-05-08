@@ -5,33 +5,28 @@ using UnityEngine.UI;
 
 public class CountDownTimer : MonoBehaviour
 {
-    float startingTime = 300f;
-    float currentTime = 0f;
+    private float currentTime;
+
     [SerializeField] Text countdownText;
     // Start is called before the first frame update
     void Start()
     {
-        currentTime = startingTime;
+        currentTime = 0f;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentTime >= 0)
+        if (!PauseMenu.IsPaused)
         {
-            if (!PauseMenu.IsPaused)
-            {
-                currentTime -= 1 * Time.deltaTime; 
-            }
+            currentTime += 1 * Time.deltaTime;
             printTimer();
-
-        }
-        else {
-            countdownText.text = "FINISH!";
         }
     }
+
+
     void printTimer() {
-        countdownText.text = "TIME: " + currentTime.ToString("0.00");
+        countdownText.text = "TIME: " + currentTime.ToString("0");
     }
 }
