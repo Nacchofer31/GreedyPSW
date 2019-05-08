@@ -69,9 +69,9 @@ public class PauseMenu : MonoBehaviour
 
     }
 
-    public void QuitGame()
+    /* public void QuitGame()
     {
         Application.Quit();
-        CaloriesScript.caloriesValue = 0;
-    }
+
+    } */
 }

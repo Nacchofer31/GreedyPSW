@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public void PlayGame() {
-        SceneManager.LoadScene("Level1");   
+        SceneManager.LoadScene("Level1");
+        CaloriesScript.caloriesValue = 0;
     }
     public void QuitGame() {
         Debug.Log("QUIT!");
