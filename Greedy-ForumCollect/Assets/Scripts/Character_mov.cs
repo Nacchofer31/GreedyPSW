@@ -195,7 +195,23 @@ public class Character_mov : MonoBehaviour {
                 
         }
 
-        if(other.gameObject.CompareTag("Food"))
+       /**if (other.gameObject.CompareTag("ExplodingTrap")) {
+           if (!powers.invencibility)
+            {
+                Hurt();
+                currentHealth = healthBar.getSize();
+                if (currentHealth == 1f) {
+                    Lifes.transform.Find("Life_" + (4 - life).ToString()).gameObject.SetActive(false);
+                    life--;
+                }
+                healthBar.setSize(currentHealth + 0.3333f);
+                Move();
+                
+            }
+
+        }**/
+
+        if (other.gameObject.CompareTag("Food"))
         {
             Interactable newFocus = other.GetComponent<Fruit>();
             SetFocus(newFocus);

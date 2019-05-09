@@ -8,6 +8,7 @@ TagManager:
   - Map
   - Food
   - Node
+  - ExplodingTrap
   layers:
   - Default
   - TransparentFX
