@@ -12,6 +12,10 @@ public class SelectPlayer : MonoBehaviour
     public GameObject Player;
 
     private Animator myAnimator;
+    public RuntimeAnimatorController RedPlayer;
+    public RuntimeAnimatorController BluePlayer;
+    public RuntimeAnimatorController GreenPlayer;
+    public RuntimeAnimatorController YellowPlayer;
 
     private void Awake()
     {
@@ -22,7 +26,8 @@ public class SelectPlayer : MonoBehaviour
     {
         Time.timeScale = 0f;
         myAnimator = Player.gameObject.GetComponent<Animator>();
-        //Debug.Log(Resources.Load("Player/Green/Green.controller").name);
+        Debug.Log(myAnimator.runtimeAnimatorController.ToString());
+        Debug.Log(Resources.Load("Green.controller").ToString());
     }
 
     void Update()
@@ -45,17 +50,36 @@ public class SelectPlayer : MonoBehaviour
 
     public void Blue()
     {
-        myAnimator.runtimeAnimatorController = 
-            (RuntimeAnimatorController)RuntimeAnimatorController.Instantiate(Resources.Load("Assets/Graphics/Animations/Player/Blue/Blue.controller", 
-            typeof(RuntimeAnimatorController)));
+        myAnimator.runtimeAnimatorController = BluePlayer;
+
+        SelectMenuUI.SetActive(false);
+        Time.timeScale = 1f;
 
     }
 
     public void Green()
     {
-        myAnimator.runtimeAnimatorController = Resources.Load("Assets/Graphics/Animations/Player/Green/Green.controller") as RuntimeAnimatorController;
+        myAnimator.runtimeAnimatorController = GreenPlayer;
            
         SelectMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+
+    }
+
+    public void Red()
+    {
+        myAnimator.runtimeAnimatorController = RedPlayer;
+
+        SelectMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+
+    }
+
+    public void Yellow()
+    {
+        myAnimator.runtimeAnimatorController = YellowPlayer;
+
+        transform.gameObject.SetActive(false);
         Time.timeScale = 1f;
 
     }
