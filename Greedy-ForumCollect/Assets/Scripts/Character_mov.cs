@@ -28,6 +28,11 @@ public class Character_mov : MonoBehaviour {
     [Header("Powers")]
     public Powers powers;
 
+    public void damagedByTrap() {
+        currentHealth = healthBar.getSize();
+        healthBar.setSize(currentHealth + 0.3333f);
+    }
+
     void Start()
     {
         animations = gameObject.GetComponent<Animator>();

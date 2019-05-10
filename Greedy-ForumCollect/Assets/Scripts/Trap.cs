@@ -6,12 +6,13 @@ public abstract class Trap : Interactable
 {
     private float currentHealth;
 
+
     [Header("Physics")]
-    Animator animations;
+    public Animator animations;
     Rigidbody2D rigidBody;
 
-    public HealthBar healthBar;
-    public Character_mov mainCharacter;
+    protected HealthBar healthBar;
+    protected Character_mov mainCharacter;
 
     public abstract void OnTriggerEnter2D(Collider2D collision);
 }

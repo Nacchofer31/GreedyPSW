@@ -5,28 +5,33 @@ using UnityEngine;
 public class ExplodingTrap : Trap
 {
     public Collider2D trapCollider;
+    [Header("Sound")]
+    public AudioClip explosionSound;
+
+    private bool hasExploded;
     // Start is called before the first frame update
     void Start()
     {
-        //healthBar = GetComponent<HealthBar>();
-        mainCharacter = GetComponent<Character_mov>();
+        hasExploded = false;
+        healthBar = GetComponent<HealthBar>();
+        mainCharacter = GameObject.FindGameObjectWithTag("Player").GetComponent<Character_mov>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
 
     public override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (!mainCharacter.powers.invencibility)
+            if (hasExploded == false)
             {
-                Debug.Log("YOU HIITTTTTTTTTTTTT ITT!!!!!!!!!!!!!");
-                healthBar.setSize(healthBar.getSize() + 0.3f);
+                hasExploded = true;
+                animations.SetBool("IsExploding", true);
+                SoundManager.instance.PlaySingle(explosionSound);
+                mainCharacter.damagedByTrap();
+                Destroy(gameObject, .7f);
             }
+            
         }
     }
 }
