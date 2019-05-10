@@ -24,6 +24,8 @@ public class Character_mov : MonoBehaviour {
     public GameObject Foods;
     public Interactable focus;
     public HealthBar healthBar;
+    public AudioSource walkingSoundEffect;
+    public AudioClip eatingSound;
 
     [Header("Powers")]
     public Powers powers;
@@ -60,21 +62,25 @@ public class Character_mov : MonoBehaviour {
         if (Input.GetKey(KeyCode.UpArrow))
         {
             direction = Vector2.up;
+            
         }
 
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             direction = Vector2.down;
+            
         }
 
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             direction = Vector2.right;
+            
         }
 
         else if (Input.GetKey(KeyCode.LeftArrow))
-        {
+        { 
             direction = Vector2.left;
+            
         }
 
         else if (Input.GetKey(KeyCode.Space))
@@ -82,6 +88,7 @@ public class Character_mov : MonoBehaviour {
             if (focus != null && focus.CompareTag("Food"))
             {
                 FruitSpawner fruit = focus.GetComponent<FruitSpawner>();
+                OnMusicPlaying(eatingSound);
                 CaloriesScript.caloriesValue += fruit.calories;
 
                 if (CaloriesScript.caloriesValue >= 100) { healthBar.setSize(healthBar.getSize() - 0.1f); CaloriesScript.caloriesValue = 0; }
@@ -89,6 +96,7 @@ public class Character_mov : MonoBehaviour {
                 focus.Interact();
                 RemoveFocus();
             }
+
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -144,6 +152,7 @@ public class Character_mov : MonoBehaviour {
             {
                 animations.SetBool("IsRunning", true);
             }
+            GetComponent<AudioSource>().UnPause();
             
         }
 
@@ -157,7 +166,8 @@ public class Character_mov : MonoBehaviour {
             {
                 animations.SetBool("IsRunning", false);
             }
-            
+            GetComponent<AudioSource>().Pause();
+
         }
         
     }
@@ -299,6 +309,9 @@ public class Character_mov : MonoBehaviour {
                 RemoveFocus();
             }
         }
+    }
+    private void OnMusicPlaying(AudioClip clip) {
+        SoundManager.instance.PlaySingle(clip);
     }
 
 }

@@ -8,19 +8,32 @@ public class PauseMenu : MonoBehaviour
     public static bool IsPaused = false;
 
     public GameObject pauseMenuUI;
+    public GameObject optionsMenuUI;
+
+    public void Resume()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        IsPaused = false;
+        AudioListener.pause = false;
+    }
+
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (!optionsMenuUI.activeInHierarchy)
         {
-            if(IsPaused)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Resume();
-            }
+                if (IsPaused)
+                {
+                    Resume();
+                }
 
-            else if(!IsPaused)
-            {
-                Pause();
+                else if (!IsPaused)
+                {
+                    Pause();
+                }
             }
         }
     }
@@ -28,6 +41,7 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         pauseMenuUI.SetActive(true);
+        IsPaused = true;
         Time.timeScale = 0f;
         AudioListener.pause = true;
     }
@@ -48,13 +62,8 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Resume()
-    {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        IsPaused = false;
-        AudioListener.pause = false;
-    }
+
+    
 
 
     public void LoadMenu()
@@ -69,9 +78,5 @@ public class PauseMenu : MonoBehaviour
 
     }
 
-    /* public void QuitGame()
-    {
-        Application.Quit();
 
-    } */
 }
