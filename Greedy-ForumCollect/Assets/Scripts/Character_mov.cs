@@ -37,6 +37,7 @@ public class Character_mov : MonoBehaviour {
 
     void Start()
     {
+        walkingSoundEffect.pitch = 1.5f;
         animations = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         InitialPosition = rb.position;
@@ -146,10 +147,12 @@ public class Character_mov : MonoBehaviour {
             direction = Vector2.zero;
             if(!powers.superSpeed)
             {
+                walkingSoundEffect.pitch = 1.5f;
                 animations.SetBool("IsMoving", true);
             }
             else
             {
+                walkingSoundEffect.pitch = 2.5f;
                 animations.SetBool("IsRunning", true);
             }
             GetComponent<AudioSource>().UnPause();
