@@ -1213,6 +1213,7 @@ MonoBehaviour:
   healthBar: {fileID: 940687270}
   walkingSoundEffect: {fileID: 238673062}
   eatingSound: {fileID: 8300000, guid: 5b8dfeba149445c46be3eed98e9baad9, type: 3}
+  hurtSound: {fileID: 8300000, guid: b14ef332d9e55e0488d32a20292a42fb, type: 3}
 --- !u!50 &238673057
 Rigidbody2D:
   serializedVersion: 4
@@ -5762,7 +5763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1316089542
 MonoBehaviour:
   m_ObjectHideFlags: 0

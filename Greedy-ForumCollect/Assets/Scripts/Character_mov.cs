@@ -25,8 +25,11 @@ public class Character_mov : MonoBehaviour {
     public GameObject Foods;
     public Interactable focus;
     public HealthBar healthBar;
+
+    [Header("Character Sounds")]
     public AudioSource walkingSoundEffect;
     public AudioClip eatingSound;
+    public AudioClip hurtSound;
 
     [Header("Powers")]
     public Powers powers;
@@ -241,6 +244,7 @@ public class Character_mov : MonoBehaviour {
     void Hurt()
     {
         animations.SetBool("IsHurting", true);
+        OnMusicPlaying(hurtSound);
     }
     void Die()
     {
