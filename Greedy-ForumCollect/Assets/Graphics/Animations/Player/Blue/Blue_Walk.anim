@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Blue_Mov
+  m_Name: Blue_Walk
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -22,20 +22,20 @@ AnimationClip:
     - time: 0
       value: {fileID: 6534441128267502912, guid: b0bc6a410e21fd145a767a942777b6e7,
         type: 3}
-    - time: 0.083333336
+    - time: 0.16666667
       value: {fileID: -4376590647097162214, guid: b0bc6a410e21fd145a767a942777b6e7,
         type: 3}
-    - time: 0.16666667
+    - time: 0.33333334
       value: {fileID: 4208607686195526434, guid: b0bc6a410e21fd145a767a942777b6e7,
         type: 3}
-    - time: 0.25
+    - time: 0.5
       value: {fileID: 8832018557762821792, guid: b0bc6a410e21fd145a767a942777b6e7,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 6
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -59,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 0.6666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
