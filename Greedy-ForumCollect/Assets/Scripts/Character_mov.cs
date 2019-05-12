@@ -145,7 +145,7 @@ public class Character_mov : MonoBehaviour {
 
     void Move()
     {
-        if(direction != Vector2.zero)
+        if(!map.IsPaused && direction != Vector2.zero)
         {
             transform.localPosition += (Vector3)(direction * RunSpeed) * Time.deltaTime;
             direction = Vector2.zero;

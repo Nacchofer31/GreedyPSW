@@ -37,7 +37,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: IsDying
+    m_ConditionEvent: IsHurting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4798866322852114246}
@@ -62,7 +62,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: IsDying
+    m_ConditionEvent: IsHurting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2548719537746032071}
@@ -144,7 +144,7 @@ AnimatorController:
   m_Name: Green
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: IsDying
+  - m_Name: IsHurting
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -311,7 +311,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: IsDying
+    m_ConditionEvent: IsHurting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4798866322852114246}
@@ -336,7 +336,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: IsDying
+    m_ConditionEvent: IsHurting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4798866322852114246}
