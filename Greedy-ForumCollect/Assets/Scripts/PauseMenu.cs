@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (!optionsMenuUI.activeInHierarchy)
+        /*if (!optionsMenuUI.activeInHierarchy)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour
                     Pause();
                 }
             }
-        }
+        }*/
     }
 
     void Pause()
@@ -48,7 +48,7 @@ public class PauseMenu : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        /*if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (IsPaused)
             {
@@ -59,12 +59,8 @@ public class PauseMenu : MonoBehaviour
             {
                 Pause();
             }
-        }
+        }*/
     }
-
-
-    
-
 
     public void LoadMenu()
     {

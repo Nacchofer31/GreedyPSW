@@ -41,7 +41,7 @@ public class enemy_ia : MonoBehaviour{
 
         //ChooseNewNode(ActualNode);
 
-        //Move();
+        Move();
         
     } 
 
@@ -55,7 +55,7 @@ public class enemy_ia : MonoBehaviour{
 
     void FixedUpdate()
     {
-        Move();
+        //Move();
     }
 
     void Move()

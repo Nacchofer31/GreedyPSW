@@ -19,6 +19,7 @@ public class Character_mov : MonoBehaviour {
     Animator animations;
 
     public float RunSpeed = 0.5f;
+    public Map map;
 
     public GameObject Lifes;
     public GameObject Foods;
@@ -30,9 +31,12 @@ public class Character_mov : MonoBehaviour {
     [Header("Powers")]
     public Powers powers;
 
-    public void damagedByTrap() {
+    public void damagedByTrap()
+    {
         currentHealth = healthBar.getSize();
         healthBar.setSize(currentHealth + 0.3333f);
+        Hurt();
+        Invoke("StopDying", 1f);
     }
 
     void Start()
@@ -177,7 +181,7 @@ public class Character_mov : MonoBehaviour {
 
     void Orientation()
     {
-        if (!PauseMenu.IsPaused)
+        if (!map.IsPaused)
         {
 
             if (direction == Vector2.right)
@@ -201,8 +205,7 @@ public class Character_mov : MonoBehaviour {
             {
                 powers.StartInvulnerable();
                 Die();
-                currentHealth = healthBar.getSize();
-                healthBar.setSize(currentHealth + 0.3333f);
+                healthBar.setSize(0f);
             }
 
             else
@@ -237,12 +240,11 @@ public class Character_mov : MonoBehaviour {
     }
     void Hurt()
     {
-        animations.SetBool("IsDying", true);
+        animations.SetBool("IsHurting", true);
     }
     void Die()
     {
         Hurt();
-        //Invoke("Respawn", 1f);
         Respawn();
         powers.StopInvulnerable();
     }
@@ -274,7 +276,7 @@ public class Character_mov : MonoBehaviour {
 
     void StopDying()
     {
-        animations.SetBool("IsDying", false);
+        animations.SetBool("IsHurting", false);
     }
 
     void SetFocus(Interactable newFocus)

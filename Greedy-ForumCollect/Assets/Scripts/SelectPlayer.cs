@@ -6,10 +6,10 @@ using UnityEngine.Animations;
 
 public class SelectPlayer : MonoBehaviour
 {
-    public static bool IsPaused = true;
 
     public GameObject SelectMenuUI;
     public GameObject Player;
+    public Map map;
 
     private Animator myAnimator;
     public RuntimeAnimatorController RedPlayer;
@@ -17,22 +17,14 @@ public class SelectPlayer : MonoBehaviour
     public RuntimeAnimatorController GreenPlayer;
     public RuntimeAnimatorController YellowPlayer;
 
-    private void Awake()
-    {
-        myAnimator = Player.gameObject.GetComponent<Animator>();
-    }
-
     void Start()
     {
-        Time.timeScale = 0f;
         myAnimator = Player.gameObject.GetComponent<Animator>();
-        Debug.Log(myAnimator.runtimeAnimatorController.ToString());
-        Debug.Log(Resources.Load("Green.controller").ToString());
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!map.PlayerSelected && Input.GetKeyDown(KeyCode.Escape))
         {
             Time.timeScale = 1f;
             SceneManager.LoadScene("MainMenu");
@@ -43,8 +35,7 @@ public class SelectPlayer : MonoBehaviour
     public void Resume()
     {
         SelectMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        IsPaused = false;
+        map.ChangeMode();
         AudioListener.pause = false;
     }
 
@@ -52,8 +43,7 @@ public class SelectPlayer : MonoBehaviour
     {
         myAnimator.runtimeAnimatorController = BluePlayer;
 
-        SelectMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+        StartGame();
 
     }
 
@@ -62,7 +52,8 @@ public class SelectPlayer : MonoBehaviour
         myAnimator.runtimeAnimatorController = GreenPlayer;
            
         SelectMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+        map.PlayerSelected = true;
+        map.ChangeMode();
 
     }
 
@@ -71,7 +62,8 @@ public class SelectPlayer : MonoBehaviour
         myAnimator.runtimeAnimatorController = RedPlayer;
 
         SelectMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+        map.PlayerSelected = true;
+        map.ChangeMode();
 
     }
 
@@ -80,7 +72,15 @@ public class SelectPlayer : MonoBehaviour
         myAnimator.runtimeAnimatorController = YellowPlayer;
 
         transform.gameObject.SetActive(false);
-        Time.timeScale = 1f;
+        map.PlayerSelected = true;
+        map.ChangeMode();
 
+    }
+
+    void StartGame()
+    {
+        SelectMenuUI.SetActive(false);
+        map.PlayerSelected = true;
+        map.ChangeMode();
     }
 }
