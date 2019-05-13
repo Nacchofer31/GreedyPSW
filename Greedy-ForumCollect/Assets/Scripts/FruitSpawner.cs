@@ -21,13 +21,13 @@ public class FruitSpawner : MonoBehaviour
         switch (Sprite_selected.name.Substring(4,1))
         {
             case "S":
-                calories = 20;
+                calories = 40;
                 break;
             case "A":
-                calories = 10;
+                calories = 20;
                 break;
             case "B":
-                calories = 5;
+                calories = 10;
                 break;
         }
 
