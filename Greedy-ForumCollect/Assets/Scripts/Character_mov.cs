@@ -104,6 +104,10 @@ public class Character_mov : MonoBehaviour {
                 focus.Interact();
                 RemoveFocus();
             }
+            if(focus != null && focus.CompareTag("Power-Up"))
+            {
+
+            }
 
         }
 
@@ -237,7 +241,13 @@ public class Character_mov : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Food"))
         {
-            Interactable newFocus = other.GetComponent<Fruit>();
+            Interactable newFocus = other.GetComponent<Item>();
+            SetFocus(newFocus);
+        }
+
+        if(other.gameObject.CompareTag("Power-Up"))
+        {
+            Interactable newFocus = other.GetComponent<Item>();
             SetFocus(newFocus);
         }
     }

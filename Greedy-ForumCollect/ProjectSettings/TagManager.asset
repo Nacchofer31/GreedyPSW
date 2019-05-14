@@ -9,6 +9,7 @@ TagManager:
   - Food
   - Node
   - ExplodingTrap
+  - Power-Up
   layers:
   - Default
   - TransparentFX

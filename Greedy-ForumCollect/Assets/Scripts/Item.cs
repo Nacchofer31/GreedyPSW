@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Fruit : Interactable
+public class Item : Interactable
 {
     public GameObject effect;
 
