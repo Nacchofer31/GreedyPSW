@@ -10,6 +10,7 @@ public class Character_mov : MonoBehaviour {
     private Vector2 direction = Vector2.zero;
     private Vector2 InitialPosition;
     private float currentHealth;
+    private bool SuperSpeedOn = false;
     
 
     int life;
@@ -107,7 +108,10 @@ public class Character_mov : MonoBehaviour {
             if(focus != null && focus.CompareTag("Power-Up"))
             {
                 Powers power = focus.GetComponent<Powers>();
+                power.Activate();
+                SuperSpeedOn = true;
 
+                focus.gameObject.SetActive(false);
                 focus.Interact();
                 RemoveFocus();
             }
@@ -130,7 +134,7 @@ public class Character_mov : MonoBehaviour {
 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (!powers.superSpeed)
+            if (!SuperSpeedOn)
             {
                 RunSpeed += powers.StartSuperSpeed();
                 Debug.Log("SuperSpeed ON");
@@ -159,7 +163,7 @@ public class Character_mov : MonoBehaviour {
         {
             transform.localPosition += (Vector3)(direction * RunSpeed) * Time.deltaTime;
             direction = Vector2.zero;
-            if(!powers.superSpeed)
+            if(!SuperSpeedOn)
             {
                 walkingSoundEffect.pitch = 1.5f;
                 animations.SetBool("IsMoving", true);
@@ -175,7 +179,7 @@ public class Character_mov : MonoBehaviour {
 
         else
         {
-            if(!powers.superSpeed)
+            if(!SuperSpeedOn)
             {
                 animations.SetBool("IsMoving", false);
             }
@@ -293,6 +297,7 @@ public class Character_mov : MonoBehaviour {
 
     void StopDying()
     {
+        Debug.Log("hola");
         animations.SetBool("IsHurting", false);
     }
 

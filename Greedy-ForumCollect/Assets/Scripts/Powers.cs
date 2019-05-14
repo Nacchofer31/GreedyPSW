@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Powers : MonoBehaviour
 {
-    public bool invencibility = false;
-    public bool superSpeed = false;
-    public bool invisibility = false;
+    public bool invencibility;
+    public bool superSpeed;
+    public bool invisibility;
 
     public Character_mov Player;
+
+    
 
     public void StartInvulnerable()
     {
@@ -35,11 +37,18 @@ public class Powers : MonoBehaviour
         return -0.2f;
     }
 
-    public void PickUp()
+    public void Activate()
     {
-        Debug.Log("Picking up item");
-        //Instantiate(effect, transform.position, Quaternion.identity);
-        StartSuperSpeed();
-        Destroy(gameObject);
+        if(superSpeed)
+        {
+            Player.RunSpeed += 0.2f;
+            Invoke("SPOff", 1);
+        }
+    }
+
+    void SPOff()
+    {
+        Debug.Log("-hola");
+        Player.RunSpeed += -0.2f;
     }
 }
