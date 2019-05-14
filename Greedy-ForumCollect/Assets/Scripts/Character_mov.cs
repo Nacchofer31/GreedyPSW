@@ -29,6 +29,7 @@ public class Character_mov : MonoBehaviour {
     public HealthBar healthBar;
 
     [Header("Character Sounds")]
+    public AudioClip explosionSound;
     public AudioSource walkingSoundEffect;
     public AudioClip eatingSound;
     public AudioClip hurtSound;
@@ -41,7 +42,7 @@ public class Character_mov : MonoBehaviour {
         currentHealth = healthBar.getSize();
         healthBar.setSize(currentHealth + 0.3333f);
         Hurt();
-        Invoke("StopDying", 1f);
+        Invoke("StopDying", 1.5f);
     }
 
     void Start()
@@ -232,21 +233,14 @@ public class Character_mov : MonoBehaviour {
                 
         }
 
-       /**if (other.gameObject.CompareTag("ExplodingTrap")) {
+       if (other.gameObject.CompareTag("ExplodingTrap")) {
            if (!powers.invencibility)
             {
-                Hurt();
-                currentHealth = healthBar.getSize();
-                if (currentHealth == 1f) {
-                    Lifes.transform.Find("Life_" + (4 - life).ToString()).gameObject.SetActive(false);
-                    life--;
-                }
-                healthBar.setSize(currentHealth + 0.3333f);
-                Move();
+                OnMusicPlaying(explosionSound);
                 
             }
 
-        }**/
+        }
 
         if (other.gameObject.CompareTag("Food"))
         {
@@ -262,8 +256,9 @@ public class Character_mov : MonoBehaviour {
     }
     void Hurt()
     {
-        animations.SetBool("IsHurting", true);
         OnMusicPlaying(hurtSound);
+        animations.SetBool("IsHurting", true);
+
     }
     void Die()
     {

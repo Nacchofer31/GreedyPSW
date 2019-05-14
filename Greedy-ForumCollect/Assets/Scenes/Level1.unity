@@ -787,7 +787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &203658917
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1211,6 +1211,7 @@ MonoBehaviour:
   Foods: {fileID: 2079458655}
   focus: {fileID: 0}
   healthBar: {fileID: 940687270}
+  explosionSound: {fileID: 8300000, guid: ec8466a96cd5d434fb66f486dc29bbd9, type: 3}
   walkingSoundEffect: {fileID: 238673062}
   eatingSound: {fileID: 8300000, guid: 5b8dfeba149445c46be3eed98e9baad9, type: 3}
   hurtSound: {fileID: 8300000, guid: b14ef332d9e55e0488d32a20292a42fb, type: 3}
@@ -21574,7 +21575,7 @@ MonoBehaviour:
   InteractionTransform: {fileID: 1912542404}
   animations: {fileID: 1912542405}
   trapCollider: {fileID: 1912542402}
-  explosionSound: {fileID: 8300000, guid: ec8466a96cd5d434fb66f486dc29bbd9, type: 3}
+  map: {fileID: 0}
 --- !u!4 &1912542404
 Transform:
   m_ObjectHideFlags: 0
@@ -21639,7 +21640,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPaused: 0
   PlayerSelected: 0
+  player: {fileID: 238673056}
   PauseMenuUI: {fileID: 229804378}
+  levelMusic: {fileID: 203658917}
+  reversedLevelMusic: {fileID: 0}
 --- !u!4 &1945334802
 Transform:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        /*if (!optionsMenuUI.activeInHierarchy)
+        if (!optionsMenuUI.activeInHierarchy)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour
                     Pause();
                 }
             }
-        }*/
+        }
     }
 
     void Pause()

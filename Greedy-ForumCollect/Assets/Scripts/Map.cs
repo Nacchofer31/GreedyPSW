@@ -7,18 +7,26 @@ public class Map : MonoBehaviour
     public bool IsPaused;
     public bool PlayerSelected;
 
+    public Character_mov player;
     public GameObject PauseMenuUI;
+    [Header ("Level Music")]
+    public AudioSource levelMusic;
+
+    private SoundManager soundManager;
+
     
     void Start()
     {
         IsPaused = true;
         PlayerSelected = false;
         Time.timeScale = 0f;
+
+
     }
 
     void Update()
     {
-        Tecla();
+        //Tecla();
     }
 
     void Tecla()
@@ -38,6 +46,7 @@ public class Map : MonoBehaviour
             }
         }
     }
+
 
     public void ChangeMode()
     {
