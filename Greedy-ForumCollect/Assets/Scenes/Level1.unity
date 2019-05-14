@@ -5218,6 +5218,7 @@ GameObject:
   - component: {fileID: 1210092875}
   - component: {fileID: 1210092874}
   - component: {fileID: 1210092872}
+  - component: {fileID: 1210092873}
   m_Layer: 0
   m_Name: Item
   m_TagString: Power-Up
@@ -5240,7 +5241,23 @@ MonoBehaviour:
   radius: 0.1
   isFocus: 0
   InteractionTransform: {fileID: 1210092877}
-  effect: {fileID: 0}
+  effect: {fileID: 8749221949765072050, guid: 2ad1bc6ef9ea9864da9aac7bd7e4c55f, type: 3}
+--- !u!114 &1210092873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210092871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b522c70d92e007642b61187ec5afec85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invencibility: 0
+  superSpeed: 0
+  invisibility: 0
+  Player: {fileID: 0}
 --- !u!61 &1210092874
 BoxCollider2D:
   m_ObjectHideFlags: 0

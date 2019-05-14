@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Powers : Interactable
+public class Powers : MonoBehaviour
 {
     public bool invencibility = false;
     public bool superSpeed = false;
@@ -33,13 +33,6 @@ public class Powers : Interactable
     {
         superSpeed = false;
         return -0.2f;
-    }
-
-    public override void Interact()
-    {
-        base.Interact();
-
-        PickUp();
     }
 
     public void PickUp()

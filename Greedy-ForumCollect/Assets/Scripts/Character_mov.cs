@@ -106,7 +106,10 @@ public class Character_mov : MonoBehaviour {
             }
             if(focus != null && focus.CompareTag("Power-Up"))
             {
+                Powers power = focus.GetComponent<Powers>();
 
+                focus.Interact();
+                RemoveFocus();
             }
 
         }
