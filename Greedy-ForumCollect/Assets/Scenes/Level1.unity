@@ -5255,9 +5255,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invencibility: 0
-  superSpeed: 0
+  superSpeed: 1
   invisibility: 0
-  Player: {fileID: 0}
+  Player: {fileID: 238673056}
 --- !u!61 &1210092874
 BoxCollider2D:
   m_ObjectHideFlags: 0
