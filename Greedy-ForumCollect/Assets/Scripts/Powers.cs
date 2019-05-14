@@ -46,7 +46,7 @@ public class Powers : MonoBehaviour
         }
     }
 
-    void SPOff()
+    public void SPOff()
     {
         Debug.Log("-hola");
         Player.RunSpeed += -0.2f;

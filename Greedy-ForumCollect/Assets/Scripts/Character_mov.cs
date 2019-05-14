@@ -19,7 +19,8 @@ public class Character_mov : MonoBehaviour {
     Rigidbody2D rb;
     Animator animations;
 
-    public float RunSpeed = 0.5f;
+    private float PrevRunSpeed = 0.7f;
+    public float RunSpeed;
     public Map map;
 
     public GameObject Lifes;
@@ -114,6 +115,7 @@ public class Character_mov : MonoBehaviour {
                 focus.gameObject.SetActive(false);
                 focus.Interact();
                 RemoveFocus();
+                Invoke("SPOff", 5f);
             }
 
         }
@@ -341,4 +343,10 @@ public class Character_mov : MonoBehaviour {
         SoundManager.instance.PlaySingle(clip);
     }
 
+    void SPOff()
+    {
+        RunSpeed = PrevRunSpeed;
+        SuperSpeedOn = false;
+        animations.SetBool("IsRunning", false);
+    }
 }
