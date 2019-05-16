@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Character_mov : MonoBehaviour {
 
@@ -27,6 +28,7 @@ public class Character_mov : MonoBehaviour {
     public GameObject Foods;
     public Interactable focus;
     public HealthBar healthBar;
+    public FruitsText fruitText;
 
     [Header("Character Sounds")]
     public AudioClip explosionSound;
@@ -100,6 +102,7 @@ public class Character_mov : MonoBehaviour {
             {
                 FruitSpawner fruit = focus.GetComponent<FruitSpawner>();
                 OnMusicPlaying(eatingSound);
+                fruitText.fruitConsumed();
                 CaloriesScript.caloriesValue += fruit.calories;
 
                 if (CaloriesScript.caloriesValue >= 100) { healthBar.setSize(healthBar.getSize() - 0.1f); CaloriesScript.caloriesValue = 0; }
