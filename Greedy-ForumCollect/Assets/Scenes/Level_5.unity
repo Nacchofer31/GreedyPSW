@@ -16488,7 +16488,7 @@ MonoBehaviour:
   InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 170186506}
   TargetNode: {fileID: 0}
-  runSpeed: 0.8
+  runSpeed: 0.5
   error: 0
 --- !u!70 &724386704
 CapsuleCollider2D:
@@ -18455,7 +18455,7 @@ MonoBehaviour:
   InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 1607680479}
   TargetNode: {fileID: 0}
-  runSpeed: 0.8
+  runSpeed: 0.5
   error: 0
 --- !u!70 &1082965471
 CapsuleCollider2D:
@@ -35891,7 +35891,7 @@ MonoBehaviour:
   InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 1683736179}
   TargetNode: {fileID: 0}
-  runSpeed: 0.8
+  runSpeed: 0.5
   error: 0
 --- !u!70 &1672972970
 CapsuleCollider2D:
@@ -37936,7 +37936,7 @@ MonoBehaviour:
   InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 1289906415}
   TargetNode: {fileID: 0}
-  runSpeed: 0.8
+  runSpeed: 0.5
   error: 0
 --- !u!70 &1960926321
 CapsuleCollider2D:
@@ -38491,7 +38491,7 @@ MonoBehaviour:
   InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 200101656}
   TargetNode: {fileID: 0}
-  runSpeed: 0.8
+  runSpeed: 0.5
   error: 0
 --- !u!70 &2051560660
 CapsuleCollider2D:
@@ -38844,7 +38844,7 @@ MonoBehaviour:
   InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 398558022}
   TargetNode: {fileID: 0}
-  runSpeed: 0.8
+  runSpeed: 0.5
   error: 0
 --- !u!70 &2101146170
 CapsuleCollider2D:

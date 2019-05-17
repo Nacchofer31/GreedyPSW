@@ -43,7 +43,12 @@ public class enemy_ia : MonoBehaviour{
 
         Move();
         
-    } 
+    }
+    
+    void FixedUpdate()
+    {
+        Move();
+    }
 
     void ChooseNextMove()
     {
@@ -51,11 +56,6 @@ public class enemy_ia : MonoBehaviour{
          direccion = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized;
          movimientoPorSegundo = direccion * runSpeed;  
 
-    }
-
-    void FixedUpdate()
-    {
-        //Move();
     }
 
     void Move()
