@@ -30,19 +30,8 @@ public class enemy_ia : MonoBehaviour{
     // Update is called once per frame
     void Update()
     {
-        /*if (Time.time - temporizadorUltimaDireccion > temporizadorCambioDeDireccion){
-            
-            temporizadorUltimaDireccion = Time.time;
-            ChooseNextMove();
-        }
-        
         Move();
-        Orientation();*/
-
-        //ChooseNewNode(ActualNode);
-
-        Move();
-        
+       
     }
     
     void FixedUpdate()
@@ -52,10 +41,8 @@ public class enemy_ia : MonoBehaviour{
 
     void ChooseNextMove()
     {
-
          direccion = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized;
          movimientoPorSegundo = direccion * runSpeed;  
-
     }
 
     void Move()
