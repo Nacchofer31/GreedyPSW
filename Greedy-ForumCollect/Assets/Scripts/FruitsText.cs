@@ -7,11 +7,12 @@ using UnityEngine.UI;
 public class FruitsText : MonoBehaviour
 {
     public Text fruitsText;
-    public int numberOfFruits;
+    
     public Scene levelScene;
     public Character_mov player;
 
     private string nextScene;
+    private int numberOfFruits;
     /**
     public FruitsText() {
         if (SceneManager.GetActiveScene().name == "Level1")
