@@ -24,6 +24,11 @@ public class SelectPlayer : MonoBehaviour
 
     void Update()
     {
+        if (SceneManager.GetActiveScene().name != "Level1") {
+            SelectMenuUI.SetActive(false);
+            map.PlayerSelected = true;
+            map.IsPaused = false;
+        }
         if (!map.PlayerSelected && Input.GetKeyDown(KeyCode.Escape))
         {
             Time.timeScale = 1f;

@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class FruitsText : MonoBehaviour
 {
     public Text fruitsText;
-    
-    public Scene levelScene;
+    public Map map;
+
     public Character_mov player;
 
     private string nextScene;
@@ -111,7 +111,7 @@ public class FruitsText : MonoBehaviour
         {
             nextScene = "LevelPassed";
         }
-        SceneManager.LoadScene(nextScene);
+        map.getNextlevel(nextScene);
     }
 
 

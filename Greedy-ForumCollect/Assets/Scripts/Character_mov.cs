@@ -49,6 +49,7 @@ public class Character_mov : MonoBehaviour {
 
     void Start()
     {
+        
         walkingSoundEffect.pitch = 1.5f;
         animations = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -104,6 +105,7 @@ public class Character_mov : MonoBehaviour {
                 OnMusicPlaying(eatingSound);
                 fruitText.fruitConsumed();
                 CaloriesScript.caloriesValue += fruit.calories;
+                map.addLevelScore((float)fruit.calories);
 
                 if (CaloriesScript.caloriesValue >= 100) { healthBar.setSize(healthBar.getSize() - 0.1f); CaloriesScript.caloriesValue = 0; }
 

@@ -353,6 +353,50 @@ MonoBehaviour:
   - {fileID: 1731128014}
   - {fileID: 1950246645}
   Position: {x: 3.858, y: 0.853}
+--- !u!1 &93656188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 93656190}
+  - component: {fileID: 93656189}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &93656189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93656188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ec80addd8690844a29db35055d328c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 1945334801}
+--- !u!4 &93656190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93656188}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.2695267, y: 2.0255368, z: -14.53469}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &96550476
 GameObject:
   m_ObjectHideFlags: 0
@@ -3326,6 +3370,113 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807828521}
   m_CullTransparentMesh: 0
+--- !u!1 &816358094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 816358095}
+  - component: {fileID: 816358098}
+  - component: {fileID: 816358097}
+  - component: {fileID: 816358096}
+  - component: {fileID: 816358099}
+  m_Layer: 5
+  m_Name: ScoreText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &816358095
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816358094}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 941911595}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000020543, y: 162.1}
+  m_SizeDelta: {x: 180.91, y: 29.12}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &816358096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816358094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026579130c595ee468bce70cc258fd8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &816358097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816358094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 92206f48e8e27e2409b5af7ae452ce48, type: 3}
+    m_FontSize: 28
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'SCORE: 0'
+--- !u!222 &816358098
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816358094}
+  m_CullTransparentMesh: 0
+--- !u!114 &816358099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816358094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b7b4377c5b71e94a993ffb9dc1638c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 1945334801}
+  scoreText: {fileID: 816358097}
 --- !u!1 &825688822
 GameObject:
   m_ObjectHideFlags: 0
@@ -3833,6 +3984,7 @@ RectTransform:
   - {fileID: 1233185418}
   - {fileID: 1137829187}
   - {fileID: 1740079915}
+  - {fileID: 816358095}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4370,7 +4522,7 @@ MonoBehaviour:
   InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 537192402}
   TargetNode: {fileID: 0}
-  runSpeed: 0.8
+  runSpeed: 0.3
   error: 0
 --- !u!58 &991244026
 CircleCollider2D:
@@ -4862,7 +5014,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000019073, y: 176.3}
+  m_AnchoredPosition: {x: 0.000020543, y: 195.2}
   m_SizeDelta: {x: 180.91, y: 29.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1137829188
@@ -20710,7 +20862,7 @@ MonoBehaviour:
   InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 1820691236}
   TargetNode: {fileID: 0}
-  runSpeed: 0.8
+  runSpeed: 0.3
   error: 0
 --- !u!70 &1576495685
 CapsuleCollider2D:
@@ -21370,10 +21522,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitsText: {fileID: 1740079917}
-  numberOfFruits: 0
-  levelScene:
-    m_Handle: 0
-  player: {fileID: 0}
+  map: {fileID: 1945334801}
+  player: {fileID: 238673056}
 --- !u!114 &1740079917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21917,6 +22067,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPaused: 0
   PlayerSelected: 0
+  scoreText: {fileID: 816358099}
+  fruitsText: {fileID: 1740079916}
   player: {fileID: 238673056}
   PauseMenuUI: {fileID: 229804378}
   levelMusic: {fileID: 203658917}

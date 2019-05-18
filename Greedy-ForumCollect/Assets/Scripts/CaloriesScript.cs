@@ -10,6 +10,7 @@ public class CaloriesScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        caloriesValue = 0;
         caloriesText = GetComponent<Text>();
     }
 
