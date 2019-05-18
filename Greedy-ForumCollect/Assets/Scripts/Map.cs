@@ -32,28 +32,43 @@ public class Map : MonoBehaviour
     }
     public void getNextlevel(string level) {
         nextLevel = level;
+        levelManager.updateTotalScore(levelScore);
         SceneManager.LoadScene(nextLevel);
+
 
     }
 
     void Start()
     {
-        levelManager = gameObject.GetComponent<LevelManager>();
-        IsPaused = true;
-        if (SceneManager.GetActiveScene().name == "Level1")
+        string thisLevel = SceneManager.GetActiveScene().name;
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
+        if (thisLevel == "Level1")
         {
-            PlayerSelected = false;
+            IsPaused = true;
+            Time.timeScale = 0f;
         }
-        else {
-            PlayerSelected = true;
+        else
+        {
+            IsPaused = false;
+            Time.timeScale = 1f;
         }
-        Time.timeScale = 0f;
+
 
 
     }
 
     void Update()
     {
+
+        if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            PlayerSelected = false;
+        }
+        else
+        {
+           
+            PlayerSelected = true;
+        }
         //Tecla();
     }
 

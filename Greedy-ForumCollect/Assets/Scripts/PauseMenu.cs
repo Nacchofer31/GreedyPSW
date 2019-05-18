@@ -18,6 +18,10 @@ public class PauseMenu : MonoBehaviour
         AudioListener.pause = false;
     }
 
+    private void Start()
+    {
+        Resume();
+    }
 
     void Update()
     {

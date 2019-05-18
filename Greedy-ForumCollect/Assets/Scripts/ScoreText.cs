@@ -9,6 +9,8 @@ public class ScoreText : MonoBehaviour
     public Text scoreText;
     private float levelScore;
 
+
+
     // Start is called before the first frame update
     void Start()
     {

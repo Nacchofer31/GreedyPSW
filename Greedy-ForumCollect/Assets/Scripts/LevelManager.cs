@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     private string nextLevel;
 
     public void updateTotalScore(float levelScore) {
-        totalScore += levelScore;
+        totalScore = levelScore;
     }
     public float getTotalScore() {
         return totalScore;
@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
         nextLevel = level;
         updateTotalScore(map.getLevelScore());
         SceneManager.LoadScene(nextLevel);
-        map = gameObject.GetComponent<Map>();
+        
     }
 
     // Start is called before the first frame update
@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         nextLevel = SceneManager.GetActiveScene().name;
-        map = gameObject.GetComponent<Map>();
+        map = GameObject.FindObjectOfType<Map>();
         totalScore = 0;
         map.addLevelScore(totalScore);
         
