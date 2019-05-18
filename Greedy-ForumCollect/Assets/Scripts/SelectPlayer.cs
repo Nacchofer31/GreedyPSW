@@ -20,17 +20,20 @@ public class SelectPlayer : MonoBehaviour
     void Start()
     {
         myAnimator = Player.gameObject.GetComponent<Animator>();
+        if(SceneManager.GetActiveScene().name!="Level1")
+        {
+            //myAnimator.runtimeAnimatorController =
+            SelectMenuUI.SetActive(false);
+            map.PlayerSelected = true;
+            map.ChangeMode();
+        }
     }
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name != "Level1") {
-            SelectMenuUI.SetActive(false);
-            map.PlayerSelected = true;
-            map.IsPaused = false;
-        }
         if (!map.PlayerSelected && Input.GetKeyDown(KeyCode.Escape))
         {
+
             Time.timeScale = 1f;
             SceneManager.LoadScene("MainMenu");
             AudioListener.pause = false;

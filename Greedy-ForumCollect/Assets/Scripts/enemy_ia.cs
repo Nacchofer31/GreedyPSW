@@ -30,8 +30,7 @@ public class enemy_ia : MonoBehaviour{
     // Update is called once per frame
     void Update()
     {
-        Move();
-       
+        Move();  
     }
     
     void FixedUpdate()

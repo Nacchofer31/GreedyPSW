@@ -5204,8 +5204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectMenuUI: {fileID: 1884919864}
-  Player: {fileID: 0}
-  map: {fileID: 0}
+  Player: {fileID: 238673054}
+  map: {fileID: 1945334801}
   RedPlayer: {fileID: 9100000, guid: 9b0ccf70fa3803f44ba56dce720430d2, type: 2}
   BluePlayer: {fileID: 9100000, guid: 8646a703a1f1bb241bff6e755042a777, type: 2}
   GreenPlayer: {fileID: 9100000, guid: 0c9e1153e71df634d8532cb4953ff3d3, type: 2}
