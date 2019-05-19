@@ -16,6 +16,9 @@ public class LevelManager : MonoBehaviour
     public float getTotalScore() {
         return totalScore;
     }
+    public LevelManager(float score) {
+        totalScore = score;
+    }
     
     public void loadNewLevel(string level)
     {
@@ -41,7 +44,10 @@ public class LevelManager : MonoBehaviour
 
         nextLevel = SceneManager.GetActiveScene().name;
         map = GameObject.FindObjectOfType<Map>();
-        totalScore = 0;
+        if(nextLevel == "Level1") {
+            totalScore = 0;
+        }
+
         map.addLevelScore(totalScore);
         
         
@@ -50,12 +56,17 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (nextLevel != SceneManager.GetActiveScene().name) {
+        if (nextLevel != SceneManager.GetActiveScene().name)
+        {
             nextLevel = SceneManager.GetActiveScene().name;
             map = GameObject.FindObjectOfType<Map>();
             map.addLevelScore(totalScore);
 
         }
+        else if (SceneManager.GetActiveScene().name == "MainMenu") {
+            Destroy(this.gameObject);
+        }
+
         
     }
 
