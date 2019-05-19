@@ -25,7 +25,7 @@ public class SelectPlayer : MonoBehaviour
             //myAnimator.runtimeAnimatorController =
             SelectMenuUI.SetActive(false);
             map.PlayerSelected = true;
-            map.ChangeMode();
+            //map.ChangeMode();
         }
     }
 

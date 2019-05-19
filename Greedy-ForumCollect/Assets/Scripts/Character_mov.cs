@@ -42,8 +42,8 @@ public class Character_mov : MonoBehaviour {
     public void damagedByTrap()
     {
         currentHealth = healthBar.getSize();
-        healthBar.setSize(currentHealth + 0.3333f);
-        Hurt();
+        
+        Hurt(0.333f);
         Invoke("StopDying", 1.5f);
     }
 
@@ -259,15 +259,18 @@ public class Character_mov : MonoBehaviour {
             SetFocus(newFocus);
         }
     }
-    void Hurt()
+
+    public void Hurt(float damage)
     {
+        healthBar.setSize(currentHealth + damage);
         OnMusicPlaying(hurtSound);
         animations.SetBool("IsHurting", true);
+        Invoke("StopDying", 1f);
 
     }
     void Die()
     {
-        Hurt();
+        Hurt(0f);
         Respawn();
         powers.StopInvulnerable();
     }
@@ -299,7 +302,6 @@ public class Character_mov : MonoBehaviour {
 
     void StopDying()
     {
-        Debug.Log("hola");
         animations.SetBool("IsHurting", false);
     }
 
