@@ -12,9 +12,14 @@ public class Map : MonoBehaviour
     public ScoreText scoreText;
     public FruitsText fruitsText;
 
+
     public GameObject ShieldUI;
     public GameObject BootsUI;
     public GameObject FireUI;
+
+    public CountDownTimer timeCounter;
+
+
 
     public Character_mov player;
     public GameObject PauseMenuUI;
@@ -23,9 +28,11 @@ public class Map : MonoBehaviour
     [Header ("Level Music")]
     public AudioSource levelMusic;
 
+    //private variables
     private SoundManager soundManager;
     private LevelManager levelManager;
     private float levelScore;
+    private float timeSpent;
     private string nextLevel;
 
     public float getLevelScore()
@@ -36,11 +43,18 @@ public class Map : MonoBehaviour
     {
         levelScore += value;
     }
-    public void getNextlevel(string level)
-    {
+
+
+    public void getNextlevel(string level) {
+        timeSpent = timeCounter.getTime();
+        levelManager.setTotalTime(timeSpent);
         nextLevel = level;
         levelManager.updateTotalScore(levelScore);
         SceneManager.LoadScene(nextLevel);
+    }
+    public void loadCongratulationsScreen() {
+        levelManager.loadCongratulationsScreen();
+
     }
 
     void Start()

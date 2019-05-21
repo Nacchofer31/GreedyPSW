@@ -8,6 +8,11 @@ public class CountDownTimer : MonoBehaviour
     private float currentTime;
 
     [SerializeField] Text countdownText;
+
+    public float getTime() {
+        return currentTime;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -14724,6 +14724,89 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &295656147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 295656148}
+  - component: {fileID: 295656150}
+  - component: {fileID: 295656149}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &295656148
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295656147}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -21.780264}
+  m_LocalScale: {x: 0.9989027, y: 0.9989027, z: 0.9989027}
+  m_Children: []
+  m_Father: {fileID: 1427370705}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000019550323, y: -334.89993}
+  m_SizeDelta: {x: 1008.1, y: 118.1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &295656149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295656147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 92206f48e8e27e2409b5af7ae452ce48, type: 3}
+    m_FontSize: 40
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'ACTIVE QUEST:
+
+    DO NOT RECIEVE DAMAGE!
+
+    POINTS: 250'
+--- !u!222 &295656150
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295656147}
+  m_CullTransparentMesh: 0
 --- !u!1 &307013145
 GameObject:
   m_ObjectHideFlags: 0
@@ -15409,7 +15492,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.6, y: 170}
+  m_AnchoredPosition: {x: 0.000039101, y: 175.34}
   m_SizeDelta: {x: 180.91, y: 29.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &434696885
@@ -16068,7 +16151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.40000212, y: 184.2}
+  m_AnchoredPosition: {x: -0.0000019073, y: 204.46}
   m_SizeDelta: {x: 180.91, y: 29.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &573233676
@@ -17336,6 +17419,7 @@ MonoBehaviour:
   PlayerSelected: 0
   scoreText: {fileID: 434696885}
   fruitsText: {fileID: 1651275020}
+  timeCounter: {fileID: 1086392585}
   player: {fileID: 846079162}
   PauseMenuUI: {fileID: 1427370702}
   levelMusic: {fileID: 0}
@@ -18857,6 +18941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25906915860b6c499b7b739eaf4bd4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectPlayerUI: {fileID: 0}
   SelectMenuUI: {fileID: 1519211380}
   Player: {fileID: 846079161}
   map: {fileID: 772817629}
@@ -19608,6 +19693,7 @@ GameObject:
   - component: {fileID: 1086392584}
   - component: {fileID: 1086392583}
   - component: {fileID: 1086392582}
+  - component: {fileID: 1086392585}
   m_Layer: 5
   m_Name: Countdown Text
   m_TagString: Untagged
@@ -19676,6 +19762,19 @@ RectTransform:
   m_AnchoredPosition: {x: -117.990234, y: 83}
   m_SizeDelta: {x: 1, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1086392585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086392581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a1749c6f6042343a053f1b2c9941ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdownText: {fileID: 1086392582}
 --- !u!1 &1097959588
 GameObject:
   m_ObjectHideFlags: 0
@@ -35200,6 +35299,7 @@ RectTransform:
   - {fileID: 1316143491}
   - {fileID: 698175398}
   - {fileID: 1009529975}
+  - {fileID: 295656148}
   m_Father: {fileID: 1718756850}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37455,7 +37555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitsText: {fileID: 1651275021}
-  map: {fileID: 0}
+  map: {fileID: 772817629}
   player: {fileID: 846079162}
 --- !u!114 &1651275021
 MonoBehaviour:

@@ -68,51 +68,56 @@ public class FruitsText : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Level1")
         {
-            numberOfFruits = 4;
+            numberOfFruits = 2;
 
         }
         else if (SceneManager.GetActiveScene().name == "Level2")
         {
-            numberOfFruits = 8;
+            numberOfFruits = 2;
         }
         else if (SceneManager.GetActiveScene().name == "Level3")
         {
-            numberOfFruits = 12;
+            numberOfFruits = 2;
         }
         else if (SceneManager.GetActiveScene().name == "Level4")
         {
-            numberOfFruits = 16;
+            numberOfFruits = 2;
         }
         else if (SceneManager.GetActiveScene().name == "Level_5")
         {
-            numberOfFruits = 20;
+            numberOfFruits = 2;
         }
     }
 
     private void nextLevel() {
-        if (SceneManager.GetActiveScene().name == "Level1")
+        if (SceneManager.GetActiveScene().name != "Level_5")
         {
-            nextScene = "Level2";
 
+            if (SceneManager.GetActiveScene().name == "Level1")
+            {
+                nextScene = "Level2";
+
+            }
+            else if (SceneManager.GetActiveScene().name == "Level2")
+            {
+                nextScene = "Level3";
+            }
+            else if (SceneManager.GetActiveScene().name == "Level3")
+            {
+                nextScene = "Level4";
+            }
+            else if (SceneManager.GetActiveScene().name == "Level4")
+            {
+                nextScene = "Level_5";
+            }
+
+            map.getNextlevel(nextScene);
         }
-        else if (SceneManager.GetActiveScene().name == "Level2")
-        {
-            nextScene = "Level3";
-        }
-        else if (SceneManager.GetActiveScene().name == "Level3")
-        {
-            nextScene = "Level4";
-        }
-        else if (SceneManager.GetActiveScene().name == "Level4")
-        {
-            nextScene = "Level_5";
-        }
-        else if (SceneManager.GetActiveScene().name == "Level_5")
-        {
+        else {
             nextScene = "LevelPassed";
+            map.loadCongratulationsScreen();
         }
-        map.getNextlevel(nextScene);
-    }
+      }
 
 
 }

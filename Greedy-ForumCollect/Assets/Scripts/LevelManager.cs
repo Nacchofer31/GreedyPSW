@@ -9,13 +9,25 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance = null;
     private float totalScore;
     private string nextLevel;
+    private int lastSceneToLoad;
+    private float totalTime;
 
+    //get and set for score
+    public float getTotalScore()
+    {
+        return totalScore;
+    }
     public void updateTotalScore(float levelScore) {
         totalScore = levelScore;
     }
-    public float getTotalScore() {
-        return totalScore;
+    //get and set for time
+    public void setTotalTime(float time) {
+        totalTime += time;
     }
+    public float getTotalTime() {
+        return totalTime;
+    }
+
     public LevelManager(float score) {
         totalScore = score;
     }
@@ -26,6 +38,11 @@ public class LevelManager : MonoBehaviour
         updateTotalScore(map.getLevelScore());
         SceneManager.LoadScene(nextLevel);
         
+    }
+
+    public void loadCongratulationsScreen() {
+        lastSceneToLoad = SceneManager.GetActiveScene().buildIndex + 2;
+        SceneManager.LoadScene(lastSceneToLoad);
     }
 
     // Start is called before the first frame update
@@ -47,8 +64,10 @@ public class LevelManager : MonoBehaviour
         if(nextLevel == "Level1") {
             totalScore = 0;
         }
-
-        map.addLevelScore(totalScore);
+        if (map != null)
+        {
+            map.addLevelScore(totalScore);
+        }
         
         
     }
@@ -60,7 +79,10 @@ public class LevelManager : MonoBehaviour
         {
             nextLevel = SceneManager.GetActiveScene().name;
             map = GameObject.FindObjectOfType<Map>();
-            map.addLevelScore(totalScore);
+            if (map != null)
+            {
+                map.addLevelScore(totalScore);
+            }
 
         }
         else if (SceneManager.GetActiveScene().name == "MainMenu") {
