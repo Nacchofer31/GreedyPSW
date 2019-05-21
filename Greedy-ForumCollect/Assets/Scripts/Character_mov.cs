@@ -13,7 +13,9 @@ public class Character_mov : MonoBehaviour {
     private float currentHealth;
     private bool SuperSpeedOn = false;
     private bool Invencibility = false;
-    
+    private bool PowerUpUsed = false;
+    private bool damaged = false;
+
 
     int life;
 
@@ -117,6 +119,7 @@ public class Character_mov : MonoBehaviour {
             }
             /*if(focus != null && focus.CompareTag("Power-Up"))
             {
+                PowerUpUsed = true;
                 if(focus.name == "Boots")
                 {
                     Powers power = focus.GetComponent<Powers>();
@@ -260,6 +263,7 @@ public class Character_mov : MonoBehaviour {
         }
 
        if (other.gameObject.CompareTag("ExplodingTrap")) {
+            damaged = true;
            if (!powers.invencibility)
             {
                 OnMusicPlaying(explosionSound);
@@ -431,5 +435,15 @@ public class Character_mov : MonoBehaviour {
         SuperSpeedOn = false;
         animations.SetBool("IsRunning", false);
         map.BootsUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+    }
+
+    public bool getPowerUpUsed()
+    {
+        return PowerUpUsed;
+    }
+
+    public bool getDamaged()
+    {
+        return damaged;
     }
 }
