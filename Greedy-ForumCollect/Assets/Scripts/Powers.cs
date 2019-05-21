@@ -8,6 +8,8 @@ public class Powers : MonoBehaviour
     public bool superSpeed;
     public bool invisibility;
 
+    public GameObject ElementUI;
+
     public Character_mov Player;
 
     

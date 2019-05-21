@@ -12,6 +12,7 @@ public class Character_mov : MonoBehaviour {
     private Vector2 InitialPosition;
     private float currentHealth;
     private bool SuperSpeedOn = false;
+    private bool Invencibility = false;
     
 
     int life;
@@ -115,14 +116,31 @@ public class Character_mov : MonoBehaviour {
             }
             if(focus != null && focus.CompareTag("Power-Up"))
             {
-                Powers power = focus.GetComponent<Powers>();
-                power.Activate();
-                SuperSpeedOn = true;
+                if(focus.name == "Boots")
+                {
+                    Powers power = focus.GetComponent<Powers>();
+                    power.Activate();
+                    SuperSpeedOn = true;
+                    map.BootsUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
 
-                focus.gameObject.SetActive(false);
-                focus.Interact();
-                RemoveFocus();
-                Invoke("SPOff", 5f);
+                    focus.gameObject.SetActive(false);
+                    focus.Interact();
+                    RemoveFocus();
+                    Invoke("SPOff", 5f);
+                }
+
+                else if(focus.name == "Shield")
+                {
+                    Powers power = focus.GetComponent<Powers>();
+                    power.Activate();
+                    powers.invencibility = true;
+                    map.ShieldUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+
+                    focus.gameObject.SetActive(false);
+                    focus.Interact();
+                    RemoveFocus();
+                }
+                
             }
 
         }
@@ -235,6 +253,7 @@ public class Character_mov : MonoBehaviour {
             {
                 enemy_ia Enemy = (enemy_ia) other.gameObject.GetComponent<enemy_ia>();
                 KillEnemy(Enemy);
+                map.ShieldUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             }
                 
         }
@@ -373,5 +392,6 @@ public class Character_mov : MonoBehaviour {
         RunSpeed = PrevRunSpeed;
         SuperSpeedOn = false;
         animations.SetBool("IsRunning", false);
+        map.BootsUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
     }
 }

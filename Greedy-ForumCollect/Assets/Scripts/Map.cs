@@ -12,10 +12,14 @@ public class Map : MonoBehaviour
     public ScoreText scoreText;
     public FruitsText fruitsText;
 
-
+    public GameObject ShieldUI;
+    public GameObject BootsUI;
+    public GameObject FireUI;
 
     public Character_mov player;
     public GameObject PauseMenuUI;
+    public GameObject PowersUI;
+
     [Header ("Level Music")]
     public AudioSource levelMusic;
 
@@ -24,18 +28,19 @@ public class Map : MonoBehaviour
     private float levelScore;
     private string nextLevel;
 
-    public float getLevelScore() {
+    public float getLevelScore()
+    {
         return levelScore;
     }
-    public void addLevelScore(float value) {
+    public void addLevelScore(float value)
+    {
         levelScore += value;
     }
-    public void getNextlevel(string level) {
+    public void getNextlevel(string level)
+    {
         nextLevel = level;
         levelManager.updateTotalScore(levelScore);
         SceneManager.LoadScene(nextLevel);
-
-
     }
 
     void Start()
@@ -52,8 +57,6 @@ public class Map : MonoBehaviour
             IsPaused = false;
             Time.timeScale = 1f;
         }
-
-
 
     }
 
@@ -105,5 +108,13 @@ public class Map : MonoBehaviour
             IsPaused = true;
         }
 
+    }
+
+    void ActiveUI(int type)
+    {
+        switch(type)
+        {
+            //case 0:  
+        }
     }
 }
