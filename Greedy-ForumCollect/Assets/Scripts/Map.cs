@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Map : MonoBehaviour
 {
     public bool IsPaused;
     public bool PlayerSelected;
+    public MissionController missionController;
 
     [Header ("Level UI")]
     public ScoreText scoreText;
     public FruitsText fruitsText;
-
+ 
 
     public GameObject ShieldUI;
     public GameObject BootsUI;
@@ -34,6 +36,7 @@ public class Map : MonoBehaviour
     private float levelScore;
     private float timeSpent;
     private string nextLevel;
+    private string thisLevel;
 
     public float getLevelScore()
     {
@@ -47,6 +50,12 @@ public class Map : MonoBehaviour
 
     public void getNextlevel(string level) {
         timeSpent = timeCounter.getTime();
+        if(thisLevel == "Level1") {
+            checkTimeOutMission();
+        }
+        if (thisLevel == "Level2") {
+            checkTimeOutMission();
+        }
         levelManager.setTotalTime(timeSpent);
         nextLevel = level;
         levelManager.updateTotalScore(levelScore);
@@ -59,7 +68,7 @@ public class Map : MonoBehaviour
 
     void Start()
     {
-        string thisLevel = SceneManager.GetActiveScene().name;
+        thisLevel = SceneManager.GetActiveScene().name;
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         if (thisLevel == "Level1")
         {
@@ -72,6 +81,15 @@ public class Map : MonoBehaviour
             Time.timeScale = 1f;
         }
 
+    }
+
+    void checkTimeOutMission() {
+        float finishingTime = missionController.getFinishingTime();
+        if (timeSpent <= finishingTime)
+        {
+            float reward = missionController.getReward();
+            addLevelScore(reward);
+        }
     }
 
     void Update()
