@@ -7,6 +7,8 @@ public class Node : MonoBehaviour
     public Node[] NodeNeighbour;
     public Vector2 Position;
 
+    private bool IsBusy = false;
+
     void Start()
     {
         /*posX = transform.position.x;
@@ -14,5 +16,20 @@ public class Node : MonoBehaviour
 
         Position = new Vector2(posX, posY);*/
         
+    }
+
+    public void ToBusy()
+    {
+        IsBusy = true;
+    }
+
+    public bool GetBusy()
+    {
+        return IsBusy;
+    }
+
+    public void Free()
+    {
+        IsBusy = false;
     }
 }
