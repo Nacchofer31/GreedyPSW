@@ -21,13 +21,20 @@ public class Fire : Interactable
     {
         if(collision.CompareTag("Player"))
         {
-            int i = 0;
-            while (i != 5)
+            float i = 0;
+            touching();
+            while (i != 4)
             {
-                player.Hurt(0.1f);
+                Invoke("touching", i);
+                
                 i++;
             } 
         }
+    }
+
+    void touching()
+    {
+        player.Hurt(0.1f);
     }
 
     void StopFiring()

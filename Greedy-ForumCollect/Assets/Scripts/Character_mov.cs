@@ -20,7 +20,7 @@ public class Character_mov : MonoBehaviour {
     Rigidbody2D rb;
     Animator animations;
 
-    private float PrevRunSpeed = 0.7f;
+    private readonly float PrevRunSpeed = 0.7f;
     public float RunSpeed;
     public Map map;
 
@@ -262,10 +262,20 @@ public class Character_mov : MonoBehaviour {
 
     public void Hurt(float damage)
     {
+        currentHealth += damage;
         healthBar.setSize(currentHealth + damage);
         OnMusicPlaying(hurtSound);
         animations.SetBool("IsHurting", true);
-        Invoke("StopDying", 1f);
+        Debug.Log(currentHealth.ToString());
+        if (currentHealth >= 1)
+        {
+            Respawn();
+        }
+        else
+        {            
+            Invoke("StopDying", 1f);
+        }
+        
 
     }
     void Die()
@@ -284,6 +294,7 @@ public class Character_mov : MonoBehaviour {
     {
         if(life > 1)
         {
+            currentHealth = 0f;
             Lifes.transform.Find("Life_" + (4-life).ToString()).gameObject.SetActive(false);
             life--;
             
@@ -298,6 +309,17 @@ public class Character_mov : MonoBehaviour {
             SceneManager.LoadScene("GameOver");
         }
         
+    }
+
+    public void LifeUp()
+    {
+        if(life < 3)
+        {
+            currentHealth = 0f;
+            healthBar.setSize(currentHealth);
+            Lifes.transform.Find("Life_" + (4 - life + 1).ToString()).gameObject.SetActive(true);
+            life++;
+        }
     }
 
     void StopDying()
