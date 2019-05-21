@@ -15059,7 +15059,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 378888131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.35, y: 3.655, z: -9.11377}
+  m_LocalPosition: {x: 5.546, y: -0.04, z: -9.11377}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 0}
@@ -17745,6 +17745,9 @@ MonoBehaviour:
   Boots: {fileID: 1812252550}
   Shield: {fileID: 1202814968}
   Food: {fileID: 2071784693}
+  Bomb: {fileID: 1545941279}
+  Fires: {fileID: 915481873}
+  Life: {fileID: 378888131}
   Ajustador: {fileID: 227522999}
   SpawnTime: {fileID: 1086392585}
   Nodes:
@@ -17815,6 +17818,8 @@ MonoBehaviour:
   - {fileID: 1956794361}
   - {fileID: 1945704137}
   frutas: 19
+  i: 0
+  node: 0
 --- !u!4 &793050697
 Transform:
   m_ObjectHideFlags: 0
@@ -19010,7 +19015,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915481873}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7998657, y: 1.2870231, z: -7.212107}
+  m_LocalPosition: {x: -2.248, y: -2.579, z: -7.212107}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 2095267324}
@@ -36963,7 +36968,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545941279}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.034865856, y: -0.71397686, z: 0.90166247}
+  m_LocalPosition: {x: -0.444, y: -2.663, z: 0.90166247}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2095267324}
@@ -39143,7 +39148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1718756850
 RectTransform:
   m_ObjectHideFlags: 0
@@ -42328,7 +42333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0b546d3e31a3c449bddfecbc9ce89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.1
+  radius: 0.01
   isFocus: 0
   InteractionTransform: {fileID: 2071784694}
   effect: {fileID: 8749221949765072050, guid: 2ad1bc6ef9ea9864da9aac7bd7e4c55f, type: 3}
@@ -42387,7 +42392,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.01, y: 0.01}
   m_EdgeRadius: 0
 --- !u!50 &2071784698
 Rigidbody2D:

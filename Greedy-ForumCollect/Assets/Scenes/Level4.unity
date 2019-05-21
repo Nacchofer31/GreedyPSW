@@ -1066,7 +1066,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1382194386019599978, guid: ee4a43c359b51e044897f85ffba6a46b,
+  m_Sprite: {fileID: 3761897026893310193, guid: 479316920b6a2244c84141b5af7fa942,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1095,7 +1095,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.20249999, y: 0.25}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.20249999, y: 0.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1756,6 +1756,7 @@ MonoBehaviour:
   focus: {fileID: 0}
   healthBar: {fileID: 940687270}
   fruitText: {fileID: 1740079916}
+  FoodFocus: {fileID: 0}
   explosionSound: {fileID: 8300000, guid: ec8466a96cd5d434fb66f486dc29bbd9, type: 3}
   walkingSoundEffect: {fileID: 238673062}
   eatingSound: {fileID: 8300000, guid: 5b8dfeba149445c46be3eed98e9baad9, type: 3}
@@ -18226,7 +18227,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1382194386019599978, guid: ee4a43c359b51e044897f85ffba6a46b,
+  m_Sprite: {fileID: 3761897026893310193, guid: 479316920b6a2244c84141b5af7fa942,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -18255,7 +18256,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.20249999, y: 0.25}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.20249999, y: 0.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -19843,7 +19844,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1382194386019599978, guid: ee4a43c359b51e044897f85ffba6a46b,
+  m_Sprite: {fileID: 3761897026893310193, guid: 479316920b6a2244c84141b5af7fa942,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -19872,7 +19873,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.20249999, y: 0.25}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.20249999, y: 0.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

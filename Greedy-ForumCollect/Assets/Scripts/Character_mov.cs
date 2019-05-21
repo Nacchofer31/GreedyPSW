@@ -409,7 +409,7 @@ public class Character_mov : MonoBehaviour {
     {
         if(focus != null)
         {
-            float distance = Vector3.Distance(rb.transform.position, focus.transform.position);
+            float distance = Vector3.Distance(transform.position, focus.transform.position);
             if (distance - 1f > focus.radius)
             {
                 RemoveFocus();
@@ -417,8 +417,9 @@ public class Character_mov : MonoBehaviour {
         }
         if(FoodFocus != null)
         {
-            float distance = Vector3.Distance(rb.transform.position, FoodFocus.transform.position);
-            if (distance - 1f > focus.radius)
+            float distance = Vector3.Distance(transform.position, FoodFocus.transform.position);
+            Debug.Log(distance.ToString());
+            if (distance -5f > FoodFocus.radius * 2)
             {
                 FoodFocus.onDefocused();
                 FoodFocus = null;
