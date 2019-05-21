@@ -43,7 +43,7 @@ public class Character_mov : MonoBehaviour {
     {
         currentHealth = healthBar.getSize();
         
-        Hurt(0.333f);
+        //Hurt(0.333f);
         Invoke("StopDying", 1.5f);
     }
 
@@ -57,6 +57,7 @@ public class Character_mov : MonoBehaviour {
         life = 3;
         healthBar.setSize(0f);
         powers = new Powers();
+        currentHealth = 0f;
     }
 
     void Update()
@@ -263,7 +264,7 @@ public class Character_mov : MonoBehaviour {
     public void Hurt(float damage)
     {
         currentHealth += damage;
-        healthBar.setSize(currentHealth + damage);
+        healthBar.setSize(currentHealth);
         OnMusicPlaying(hurtSound);
         animations.SetBool("IsHurting", true);
         Debug.Log(currentHealth.ToString());

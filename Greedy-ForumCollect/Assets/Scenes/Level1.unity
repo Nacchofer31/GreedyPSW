@@ -6029,6 +6029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25906915860b6c499b7b739eaf4bd4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectPlayerUI: {fileID: 1316089541}
   SelectMenuUI: {fileID: 304753873}
   Player: {fileID: 238673054}
   map: {fileID: 1945334801}

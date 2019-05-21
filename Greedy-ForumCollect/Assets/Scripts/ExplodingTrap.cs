@@ -28,7 +28,7 @@ public class ExplodingTrap : Trap
                 hasExploded = true;
                 animations.SetBool("IsExploding", true);
                 SoundManager.instance.PlaySingle(explosionSound);
-                mainCharacter.damagedByTrap();
+                mainCharacter.Hurt(0.33f);
                 Destroy(gameObject, .7f);
             }
             

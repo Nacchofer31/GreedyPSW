@@ -6,7 +6,7 @@ using UnityEngine.Animations;
 
 public class SelectPlayer : MonoBehaviour
 {
-
+    public GameObject SelectPlayerUI;
     public GameObject SelectMenuUI;
     public GameObject Player;
     public Map map;
@@ -25,6 +25,7 @@ public class SelectPlayer : MonoBehaviour
             //myAnimator.runtimeAnimatorController =
             SelectMenuUI.SetActive(false);
             map.PlayerSelected = true;
+            SelectPlayerUI.SetActive(false);
             //map.ChangeMode();
         }
     }
@@ -62,6 +63,7 @@ public class SelectPlayer : MonoBehaviour
         SelectMenuUI.SetActive(false);
         map.PlayerSelected = true;
         map.ChangeMode();
+        SelectPlayerUI.SetActive(false);
 
     }
 
@@ -72,6 +74,7 @@ public class SelectPlayer : MonoBehaviour
         SelectMenuUI.SetActive(false);
         map.PlayerSelected = true;
         map.ChangeMode();
+        SelectPlayerUI.SetActive(false);
 
     }
 
@@ -82,6 +85,7 @@ public class SelectPlayer : MonoBehaviour
         transform.gameObject.SetActive(false);
         map.PlayerSelected = true;
         map.ChangeMode();
+        SelectPlayerUI.SetActive(false);
 
     }
 
@@ -90,5 +94,6 @@ public class SelectPlayer : MonoBehaviour
         SelectMenuUI.SetActive(false);
         map.PlayerSelected = true;
         map.ChangeMode();
+        SelectPlayerUI.SetActive(false);
     }
 }

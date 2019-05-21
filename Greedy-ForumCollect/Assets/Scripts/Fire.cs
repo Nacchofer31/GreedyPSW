@@ -25,7 +25,7 @@ public class Fire : Interactable
             touching();
             while (i != 4)
             {
-                Invoke("touching", i);
+                Invoke("touching", i * 5);
                 
                 i++;
             } 
