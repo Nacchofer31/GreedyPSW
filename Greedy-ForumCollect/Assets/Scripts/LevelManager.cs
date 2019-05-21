@@ -47,8 +47,10 @@ public class LevelManager : MonoBehaviour
         if(nextLevel == "Level1") {
             totalScore = 0;
         }
-
-        map.addLevelScore(totalScore);
+        if (map != null)
+        {
+            map.addLevelScore(totalScore);
+        }
         
         
     }
@@ -60,7 +62,10 @@ public class LevelManager : MonoBehaviour
         {
             nextLevel = SceneManager.GetActiveScene().name;
             map = GameObject.FindObjectOfType<Map>();
-            map.addLevelScore(totalScore);
+            if (map != null)
+            {
+                map.addLevelScore(totalScore);
+            }
 
         }
         else if (SceneManager.GetActiveScene().name == "MainMenu") {
