@@ -56,6 +56,13 @@ public class Map : MonoBehaviour
         if (thisLevel == "Level2") {
             checkTimeOutMission();
         }
+        if (thisLevel == "Level3") {
+            checkPowerUsed();
+        }
+        if (thisLevel == "Level4")
+        {
+            checkPowerUsed();
+        }
         levelManager.setTotalTime(timeSpent);
         nextLevel = level;
         levelManager.updateTotalScore(levelScore);
@@ -86,6 +93,24 @@ public class Map : MonoBehaviour
     void checkTimeOutMission() {
         float finishingTime = missionController.getFinishingTime();
         if (timeSpent <= finishingTime)
+        {
+            float reward = missionController.getReward();
+            addLevelScore(reward);
+        }
+    }
+
+    void checkPowerUsed()
+    {
+        if (!player.getPowerUpUsed())
+        {
+            float reward = missionController.getReward();
+            addLevelScore(reward);
+        }
+    }
+
+    void checkDamaged()
+    {
+        if (!player.getDamaged())
         {
             float reward = missionController.getReward();
             addLevelScore(reward);

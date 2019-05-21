@@ -32,17 +32,14 @@ public class MissionController : MonoBehaviour
         else if (SceneManager.GetActiveScene().name == "Level3")
         {
             reward = 200;
-            finishingTime = 50f;
         }
         else if (SceneManager.GetActiveScene().name == "Level4")
         {
             reward = 225;
-            finishingTime = 50f;
         }
         else if (SceneManager.GetActiveScene().name == "Level_5")
         {
             reward = 250;
-            finishingTime = 50f;
         }
     }
 

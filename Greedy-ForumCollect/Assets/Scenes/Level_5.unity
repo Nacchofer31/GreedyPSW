@@ -17482,6 +17482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPaused: 0
   PlayerSelected: 0
+  missionController: {fileID: 0}
   scoreText: {fileID: 434696885}
   fruitsText: {fileID: 1651275020}
   ShieldUI: {fileID: 1752734048}
@@ -20642,6 +20643,7 @@ RectTransform:
   - {fileID: 587408862}
   - {fileID: 465538833}
   - {fileID: 434696884}
+  - {fileID: 1514254199}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -35592,7 +35594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1427370703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36039,6 +36041,104 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1514254198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1514254199}
+  - component: {fileID: 1514254202}
+  - component: {fileID: 1514254201}
+  - component: {fileID: 1514254200}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1514254199
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514254198}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000327, y: 1.0000327, z: 1.0000327}
+  m_Children: []
+  m_Father: {fileID: 1178006972}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -170.45, y: 187.07004}
+  m_SizeDelta: {x: 160, y: 75.85}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1514254200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514254198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc209a0aa35549045b894da1a470c480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 772817629}
+--- !u!114 &1514254201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514254198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 92206f48e8e27e2409b5af7ae452ce48, type: 3}
+    m_FontSize: 16
+    m_FontStyle: 3
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'ACTIVE QUEST:
+
+    DO NOT RECEIVE DAMAGE!
+
+
+    BONUS POINTS: 250.'
+--- !u!222 &1514254202
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514254198}
+  m_CullTransparentMesh: 0
 --- !u!1 &1519211380
 GameObject:
   m_ObjectHideFlags: 0
@@ -39075,6 +39175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1427370702}
   optionsMenuUI: {fileID: 1679621844}
+  questText: {fileID: 1514254198}
 --- !u!114 &1718756852
 MonoBehaviour:
   m_ObjectHideFlags: 0

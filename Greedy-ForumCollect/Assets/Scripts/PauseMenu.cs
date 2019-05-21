@@ -9,9 +9,11 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
     public GameObject optionsMenuUI;
+    public GameObject questText;
 
     public void Resume()
     {
+        questText.SetActive(true);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         IsPaused = false;
@@ -45,6 +47,7 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         pauseMenuUI.SetActive(true);
+        questText.SetActive(false);
         IsPaused = true;
         Time.timeScale = 0f;
         AudioListener.pause = true;
