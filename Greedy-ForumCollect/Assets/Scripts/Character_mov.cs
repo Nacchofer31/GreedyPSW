@@ -27,9 +27,10 @@ public class Character_mov : MonoBehaviour {
 
     public GameObject Lifes;
     public GameObject Foods;
-    public Interactable focus;
+    public Item focus;
     public HealthBar healthBar;
     public FruitsText fruitText;
+    public Item FoodFocus;
 
     [Header("Character Sounds")]
     public AudioClip explosionSound;
@@ -101,9 +102,9 @@ public class Character_mov : MonoBehaviour {
 
         else if (Input.GetKey(KeyCode.Space))
         {
-            if (focus != null && focus.CompareTag("Food"))
+            if (FoodFocus != null && FoodFocus.CompareTag("Food"))
             {
-                FruitSpawner fruit = focus.GetComponent<FruitSpawner>();
+                FruitSpawner fruit = FoodFocus.GetComponent<FruitSpawner>();
                 OnMusicPlaying(eatingSound);
                 fruitText.fruitConsumed();
                 CaloriesScript.caloriesValue += fruit.calories;
@@ -111,10 +112,10 @@ public class Character_mov : MonoBehaviour {
 
                 if (CaloriesScript.caloriesValue >= 100) { healthBar.setSize(healthBar.getSize() - 0.1f); CaloriesScript.caloriesValue = 0; }
 
-                focus.Interact();
+                FoodFocus.Interact();
                 RemoveFocus();
             }
-            if(focus != null && focus.CompareTag("Power-Up"))
+            /*if(focus != null && focus.CompareTag("Power-Up"))
             {
                 if(focus.name == "Boots")
                 {
@@ -141,7 +142,7 @@ public class Character_mov : MonoBehaviour {
                     RemoveFocus();
                 }
                 
-            }
+            }*/
 
         }
 
@@ -269,14 +270,41 @@ public class Character_mov : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Food"))
         {
-            Interactable newFocus = other.GetComponent<Item>();
+            Item newFocus = other.GetComponent<Item>();
             SetFocus(newFocus);
+            FoodFocus = newFocus;
         }
 
         if(other.gameObject.CompareTag("Power-Up"))
         {
-            Interactable newFocus = other.GetComponent<Item>();
-            SetFocus(newFocus);
+            Item newFocus = other.GetComponent<Item>();
+            Debug.Log(newFocus.name);
+            //SetFocus(newFocus);
+            focus = newFocus;
+            if (newFocus.name == "Boots(Clone)")
+            {
+                Powers power = newFocus.GetComponent<Powers>();
+                power.Activate();
+                SuperSpeedOn = true;
+                map.BootsUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+
+                newFocus.gameObject.SetActive(false);
+                newFocus.Interact();
+                RemoveFocus();
+                Invoke("SPOff", 5f);
+            }
+
+            else if (newFocus.name == "Shield(Clone)")
+            {
+                Powers power = newFocus.GetComponent<Powers>();
+                power.Activate();
+                powers.invencibility = true;
+                map.ShieldUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+
+                newFocus.gameObject.SetActive(false);
+                newFocus.Interact();
+
+            }
         }
     }
 
@@ -347,7 +375,7 @@ public class Character_mov : MonoBehaviour {
         animations.SetBool("IsHurting", false);
     }
 
-    void SetFocus(Interactable newFocus)
+    void SetFocus(Item newFocus)
     {
         if (newFocus != focus)
         {
@@ -357,6 +385,7 @@ public class Character_mov : MonoBehaviour {
             }
             focus = newFocus;
         }
+ 
         newFocus.onFocused(transform);
         
 
@@ -380,6 +409,15 @@ public class Character_mov : MonoBehaviour {
             if (distance - 1f > focus.radius)
             {
                 RemoveFocus();
+            }
+        }
+        if(FoodFocus != null)
+        {
+            float distance = Vector3.Distance(rb.transform.position, FoodFocus.transform.position);
+            if (distance - 1f > focus.radius)
+            {
+                FoodFocus.onDefocused();
+                FoodFocus = null;
             }
         }
     }

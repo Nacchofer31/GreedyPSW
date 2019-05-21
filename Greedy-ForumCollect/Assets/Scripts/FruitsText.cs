@@ -85,7 +85,7 @@ public class FruitsText : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Level_5")
         {
-            numberOfFruits = 2;
+            numberOfFruits = 19;
         }
     }
 

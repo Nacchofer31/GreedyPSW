@@ -14997,7 +14997,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -18109,6 +18109,7 @@ MonoBehaviour:
   focus: {fileID: 0}
   healthBar: {fileID: 465538832}
   fruitText: {fileID: 1651275020}
+  FoodFocus: {fileID: 0}
   explosionSound: {fileID: 8300000, guid: ec8466a96cd5d434fb66f486dc29bbd9, type: 3}
   walkingSoundEffect: {fileID: 846079163}
   eatingSound: {fileID: 8300000, guid: 5b8dfeba149445c46be3eed98e9baad9, type: 3}
@@ -22755,7 +22756,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202814968}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.533, y: -0.289, z: 5.600586}
+  m_LocalPosition: {x: 1.016, y: -2.801, z: 5.600586}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 55968719}
@@ -40454,7 +40455,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812252550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.3224828, y: -1.2894886, z: 5.600586}
+  m_LocalPosition: {x: -2.349, y: -2.791, z: 5.600586}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 55968719}
@@ -42200,7 +42201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2071784694
 Transform:
   m_ObjectHideFlags: 0
@@ -42209,7 +42210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071784693}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.915, y: -0.987, z: -1}
+  m_LocalPosition: {x: -0.73, y: -2.501, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1400092781}
