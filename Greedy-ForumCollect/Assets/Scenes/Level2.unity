@@ -5596,7 +5596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.2, y: 191.22}
+  m_AnchoredPosition: {x: 10.2, y: 204.46}
   m_SizeDelta: {x: 180.91, y: 29.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1137829188
@@ -6020,6 +6020,7 @@ GameObject:
   - component: {fileID: 1233185418}
   - component: {fileID: 1233185420}
   - component: {fileID: 1233185419}
+  - component: {fileID: 1233185421}
   m_Layer: 5
   m_Name: Countdown Text
   m_TagString: Untagged
@@ -6088,6 +6089,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233185417}
   m_CullTransparentMesh: 0
+--- !u!114 &1233185421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233185417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a1749c6f6042343a053f1b2c9941ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdownText: {fileID: 1233185419}
 --- !u!1 &1247406642
 GameObject:
   m_ObjectHideFlags: 0
@@ -6120,6 +6134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25906915860b6c499b7b739eaf4bd4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectPlayerUI: {fileID: 0}
   SelectMenuUI: {fileID: 62627682}
   Player: {fileID: 0}
   map: {fileID: 0}
@@ -22835,6 +22850,7 @@ MonoBehaviour:
   PlayerSelected: 0
   scoreText: {fileID: 2143089628}
   fruitsText: {fileID: 601053488}
+  timeCounter: {fileID: 1233185421}
   player: {fileID: 238673056}
   PauseMenuUI: {fileID: 229804378}
   levelMusic: {fileID: 203658917}
@@ -23759,7 +23775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.2, y: 162.1}
+  m_AnchoredPosition: {x: 10.2, y: 175.34}
   m_SizeDelta: {x: 180.91, y: 29.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2143089628
