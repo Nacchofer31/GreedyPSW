@@ -83,7 +83,9 @@ public class enemy_ia : MonoBehaviour{
 
         else if(other.gameObject.CompareTag("Enemy"))
         {
-            movimientoPorSegundo = movimientoPorSegundo * -1;
+            //movimientoPorSegundo = movimientoPorSegundo * -1;
+            direccion = direccion * -1;
+            ChooseNextMove();
         }
     }
 
