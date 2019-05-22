@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public Map map;
+    public HighScore NewScore;
     public static LevelManager instance = null;
     private float totalScore;
+    public float rankingScore;
     private string nextLevel;
     private int lastSceneToLoad;
     private float totalTime;
@@ -17,8 +19,15 @@ public class LevelManager : MonoBehaviour
     {
         return totalScore;
     }
+
+    public void SetTotalScore( float score)
+    {
+        totalScore = score;
+    }
+
     public void updateTotalScore(float levelScore) {
         totalScore = levelScore;
+        rankingScore = totalScore;
     }
     //get and set for time
     public void setTotalTime(float time) {
@@ -55,7 +64,7 @@ public class LevelManager : MonoBehaviour
         }
         else if (instance != this)
         {
-            Destroy(this.gameObject);
+        //    Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
 
@@ -63,6 +72,7 @@ public class LevelManager : MonoBehaviour
         map = GameObject.FindObjectOfType<Map>();
         if(nextLevel == "Level1") {
             totalScore = 0;
+            totalTime = 0;
         }
         if (map != null)
         {
@@ -75,6 +85,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (nextLevel != SceneManager.GetActiveScene().name)
         {
             nextLevel = SceneManager.GetActiveScene().name;
@@ -85,14 +96,11 @@ public class LevelManager : MonoBehaviour
             }
 
         }
-        else if (SceneManager.GetActiveScene().name == "MainMenu") {
-            Destroy(this.gameObject);
-        }
-
-        
     }
+
+}
 
     
 
 
-}
+

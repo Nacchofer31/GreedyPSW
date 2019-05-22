@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public LevelManager LevelManager;
+
     public void PlayGame() {
         SceneManager.LoadScene("Level1");
         CaloriesScript.caloriesValue = 0;
+        LevelManager = GameObject.FindObjectOfType<LevelManager>();
+        LevelManager.SetTotalScore(0);
     }
     public void QuitGame() {
         Debug.Log("QUIT!");
@@ -16,5 +20,5 @@ public class MainMenu : MonoBehaviour
         #endif
         Application.Quit();
 
-    }
+   }
 }
