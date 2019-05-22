@@ -383,6 +383,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 1945334801}
+  NewScore: {fileID: 0}
+  rankingScore: 0
 --- !u!4 &93656190
 Transform:
   m_ObjectHideFlags: 0
@@ -5576,7 +5578,7 @@ GameObject:
   - component: {fileID: 1210092872}
   - component: {fileID: 1210092873}
   m_Layer: 0
-  m_Name: Item
+  m_Name: Boots
   m_TagString: Power-Up
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

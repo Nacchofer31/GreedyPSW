@@ -29,7 +29,7 @@ public class Character_mov : MonoBehaviour {
 
     public GameObject Lifes;
     public GameObject Foods;
-    public Item focus;
+    public Interactable focus;
     public HealthBar healthBar;
     public FruitsText fruitText;
     public Item FoodFocus;
@@ -274,18 +274,23 @@ public class Character_mov : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Food"))
         {
-            Item newFocus = other.GetComponent<Item>();
+            Interactable newFocus = other.GetComponent<Item>();
             SetFocus(newFocus);
-            FoodFocus = newFocus;
+            focus = newFocus;
         }
 
-        if(other.gameObject.CompareTag("Power-Up"))
+        if(other.gameObject.CompareTag("Fire"))
+        {
+            map.FireUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        }
+
+        if (other.gameObject.CompareTag("Power-Up"))
         {
             Item newFocus = other.GetComponent<Item>();
             Debug.Log(newFocus.name);
             //SetFocus(newFocus);
             focus = newFocus;
-            if (newFocus.name == "Boots(Clone)")
+            if (newFocus.name == "Boots")
             {
                 Powers power = newFocus.GetComponent<Powers>();
                 power.Activate();
@@ -298,7 +303,7 @@ public class Character_mov : MonoBehaviour {
                 Invoke("SPOff", 5f);
             }
 
-            else if (newFocus.name == "Shield(Clone)")
+            else if (newFocus.name == "Shield")
             {
                 Powers power = newFocus.GetComponent<Powers>();
                 power.Activate();
@@ -379,7 +384,7 @@ public class Character_mov : MonoBehaviour {
         animations.SetBool("IsHurting", false);
     }
 
-    void SetFocus(Item newFocus)
+    void SetFocus(Interactable newFocus)
     {
         if (newFocus != focus)
         {

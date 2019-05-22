@@ -11,6 +11,7 @@ TagManager:
   - ExplodingTrap
   - Power-Up
   - ElementUI
+  - Fire
   layers:
   - Default
   - TransparentFX
