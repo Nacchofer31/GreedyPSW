@@ -104,9 +104,9 @@ public class Character_mov : MonoBehaviour {
 
         else if (Input.GetKey(KeyCode.Space))
         {
-            if (FoodFocus != null && FoodFocus.CompareTag("Food"))
+            if (focus != null && focus.CompareTag("Food"))
             {
-                FruitSpawner fruit = FoodFocus.GetComponent<FruitSpawner>();
+                FruitSpawner fruit = focus.GetComponent<FruitSpawner>();
                 OnMusicPlaying(eatingSound);
                 fruitText.fruitConsumed();
                 CaloriesScript.caloriesValue += fruit.calories;
@@ -114,7 +114,7 @@ public class Character_mov : MonoBehaviour {
 
                 if (CaloriesScript.caloriesValue >= 100) { healthBar.setSize(healthBar.getSize() - 0.1f); CaloriesScript.caloriesValue = 0; }
 
-                FoodFocus.Interact();
+                focus.Interact();
                 RemoveFocus();
             }
             /*if(focus != null && focus.CompareTag("Power-Up"))
