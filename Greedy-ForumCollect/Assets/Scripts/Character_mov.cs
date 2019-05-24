@@ -46,8 +46,6 @@ public class Character_mov : MonoBehaviour {
     public void damagedByTrap()
     {
         currentHealth = healthBar.getSize();
-        
-        //Hurt(0.333f);
         Invoke("StopDying", 1.5f);
     }
 
@@ -117,35 +115,6 @@ public class Character_mov : MonoBehaviour {
                 focus.Interact();
                 RemoveFocus();
             }
-            /*if(focus != null && focus.CompareTag("Power-Up"))
-            {
-                PowerUpUsed = true;
-                if(focus.name == "Boots")
-                {
-                    Powers power = focus.GetComponent<Powers>();
-                    power.Activate();
-                    SuperSpeedOn = true;
-                    map.BootsUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-
-                    focus.gameObject.SetActive(false);
-                    focus.Interact();
-                    RemoveFocus();
-                    Invoke("SPOff", 5f);
-                }
-
-                else if(focus.name == "Shield")
-                {
-                    Powers power = focus.GetComponent<Powers>();
-                    power.Activate();
-                    powers.invencibility = true;
-                    map.ShieldUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-
-                    focus.gameObject.SetActive(false);
-                    focus.Interact();
-                    RemoveFocus();
-                }
-                
-            }*/
 
         }
 
@@ -204,8 +173,7 @@ public class Character_mov : MonoBehaviour {
                 walkingSoundEffect.pitch = 2.5f;
                 animations.SetBool("IsRunning", true);
             }
-            GetComponent<AudioSource>().UnPause();
-            
+            GetComponent<AudioSource>().UnPause();            
         }
 
         else
@@ -313,6 +281,19 @@ public class Character_mov : MonoBehaviour {
                 newFocus.gameObject.SetActive(false);
                 newFocus.Interact();
 
+            }
+
+            else if (newFocus.name == "Heart")
+            {
+                Powers power = newFocus.GetComponent<Powers>();
+                if (life < 3)
+                {
+                    life++;
+                    Lifes.transform.Find("Life_" + (4 - life).ToString()).gameObject.SetActive(true);
+                    newFocus.gameObject.SetActive(false);
+                    newFocus.Interact();
+                }
+                
             }
         }
     }

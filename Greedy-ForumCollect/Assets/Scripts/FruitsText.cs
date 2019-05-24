@@ -68,24 +68,24 @@ public class FruitsText : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Level1")
         {
-            numberOfFruits = 2;
+            numberOfFruits = 4;
 
         }
         else if (SceneManager.GetActiveScene().name == "Level2")
         {
-            numberOfFruits = 2;
+            numberOfFruits = 8;
         }
         else if (SceneManager.GetActiveScene().name == "Level3")
         {
-            numberOfFruits = 2;
+            numberOfFruits = 12;
         }
         else if (SceneManager.GetActiveScene().name == "Level4")
         {
-            numberOfFruits = 2;
+            numberOfFruits = 16;
         }
         else if (SceneManager.GetActiveScene().name == "Level_5")
         {
-            numberOfFruits = 19;
+            numberOfFruits = 20;
         }
     }
 
