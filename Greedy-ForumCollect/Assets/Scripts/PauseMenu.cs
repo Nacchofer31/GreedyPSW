@@ -55,18 +55,7 @@ public class PauseMenu : MonoBehaviour
 
     private void FixedUpdate()
     {
-        /*if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (IsPaused)
-            {
-                Resume();
-            }
 
-            else if (!IsPaused)
-            {
-                Pause();
-            }
-        }*/
     }
 
     public void LoadMenu()

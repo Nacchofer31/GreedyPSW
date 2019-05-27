@@ -11,10 +11,6 @@ public class Node : MonoBehaviour
 
     void Start()
     {
-        /*posX = transform.position.x;
-        posY = transform.position.y;
-
-        Position = new Vector2(posX, posY);*/
         
     }
 
