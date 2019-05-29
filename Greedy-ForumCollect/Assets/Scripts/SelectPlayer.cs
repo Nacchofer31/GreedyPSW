@@ -12,6 +12,7 @@ public class SelectPlayer : MonoBehaviour
     public Map map;
 
     private Animator myAnimator;
+    private LevelManager levelManager;
     public RuntimeAnimatorController RedPlayer;
     public RuntimeAnimatorController BluePlayer;
     public RuntimeAnimatorController GreenPlayer;
@@ -22,11 +23,10 @@ public class SelectPlayer : MonoBehaviour
         myAnimator = Player.gameObject.GetComponent<Animator>();
         if(SceneManager.GetActiveScene().name!="Level1")
         {
-            //myAnimator.runtimeAnimatorController =
+            myAnimator.runtimeAnimatorController = levelManager.GetPlayerAnimation();
             SelectMenuUI.SetActive(false);
             map.PlayerSelected = true;
             SelectPlayerUI.SetActive(false);
-            //map.ChangeMode();
         }
     }
 
@@ -34,7 +34,6 @@ public class SelectPlayer : MonoBehaviour
     {
         if (!map.PlayerSelected && Input.GetKeyDown(KeyCode.Escape))
         {
-
             Time.timeScale = 1f;
             SceneManager.LoadScene("MainMenu");
             AudioListener.pause = false;
@@ -51,42 +50,33 @@ public class SelectPlayer : MonoBehaviour
     public void Blue()
     {
         myAnimator.runtimeAnimatorController = BluePlayer;
-
+        levelManager.SetPlayerAnimation(BluePlayer);
+        
         StartGame();
-
     }
 
     public void Green()
     {
         myAnimator.runtimeAnimatorController = GreenPlayer;
-           
-        SelectMenuUI.SetActive(false);
-        map.PlayerSelected = true;
-        map.ChangeMode();
-        SelectPlayerUI.SetActive(false);
+        levelManager.SetPlayerAnimation(GreenPlayer);
 
+        StartGame();
     }
 
     public void Red()
     {
         myAnimator.runtimeAnimatorController = RedPlayer;
+        levelManager.SetPlayerAnimation(RedPlayer);
 
-        SelectMenuUI.SetActive(false);
-        map.PlayerSelected = true;
-        map.ChangeMode();
-        SelectPlayerUI.SetActive(false);
-
+        StartGame();
     }
 
     public void Yellow()
     {
         myAnimator.runtimeAnimatorController = YellowPlayer;
+        levelManager.SetPlayerAnimation(YellowPlayer);
 
-        transform.gameObject.SetActive(false);
-        map.PlayerSelected = true;
-        map.ChangeMode();
-        SelectPlayerUI.SetActive(false);
-
+        StartGame();
     }
 
     void StartGame()

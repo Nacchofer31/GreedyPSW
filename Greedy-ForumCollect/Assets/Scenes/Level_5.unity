@@ -17679,12 +17679,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e014be56c2fda4b9c94d172396138741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direccion: {x: 0, y: 0}
-  InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 170186506}
   TargetNode: {fileID: 0}
-  runSpeed: 0.5
-  error: 0
 --- !u!70 &724386704
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -18591,7 +18587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5500b1d08f04f40b903766d39defe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RunSpeed: 0.7
   map: {fileID: 772817629}
   Lifes: {fileID: 587408861}
   Foods: {fileID: 1400092780}
@@ -18603,7 +18598,6 @@ MonoBehaviour:
   walkingSoundEffect: {fileID: 846079163}
   eatingSound: {fileID: 8300000, guid: 5b8dfeba149445c46be3eed98e9baad9, type: 3}
   hurtSound: {fileID: 8300000, guid: b14ef332d9e55e0488d32a20292a42fb, type: 3}
-  powers: {fileID: 0}
 --- !u!82 &846079163
 AudioSource:
   m_ObjectHideFlags: 0
@@ -19645,7 +19639,7 @@ GameObject:
   - component: {fileID: 915481878}
   m_Layer: 0
   m_Name: Fire
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19763,6 +19757,7 @@ MonoBehaviour:
   isFocus: 0
   InteractionTransform: {fileID: 915481875}
   player: {fileID: 846079162}
+  map: {fileID: 772817629}
 --- !u!1 &927631891
 GameObject:
   m_ObjectHideFlags: 0
@@ -20444,12 +20439,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e014be56c2fda4b9c94d172396138741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direccion: {x: 0, y: 0}
-  InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 1607680479}
   TargetNode: {fileID: 0}
-  runSpeed: 0.5
-  error: 0
 --- !u!70 &1082965471
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -39159,12 +39150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e014be56c2fda4b9c94d172396138741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direccion: {x: 0, y: 0}
-  InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 1683736179}
   TargetNode: {fileID: 0}
-  runSpeed: 0.5
-  error: 0
 --- !u!70 &1672972970
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -42564,12 +42551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e014be56c2fda4b9c94d172396138741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direccion: {x: 0, y: 0}
-  InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 1289906415}
   TargetNode: {fileID: 0}
-  runSpeed: 0.5
-  error: 0
 --- !u!70 &1960926321
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -43282,12 +43265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e014be56c2fda4b9c94d172396138741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direccion: {x: 0, y: 0}
-  InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 200101656}
   TargetNode: {fileID: 0}
-  runSpeed: 0.5
-  error: 0
 --- !u!70 &2051560660
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -44187,12 +44166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e014be56c2fda4b9c94d172396138741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direccion: {x: 0, y: 0}
-  InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 398558022}
   TargetNode: {fileID: 0}
-  runSpeed: 0.5
-  error: 0
 --- !u!70 &2101146170
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public RuntimeAnimatorController playerAnimation;
     public Map map;
     public HighScore NewScore;
     public static LevelManager instance = null;
@@ -20,7 +21,7 @@ public class LevelManager : MonoBehaviour
         return totalScore;
     }
 
-    public void SetTotalScore( float score)
+    public void SetTotalScore(float score)
     {
         totalScore = score;
     }
@@ -35,6 +36,16 @@ public class LevelManager : MonoBehaviour
     }
     public float getTotalTime() {
         return totalTime;
+    }
+
+    public void SetPlayerAnimation(RuntimeAnimatorController animation)
+    {
+        playerAnimation = animation;
+    }
+
+    public RuntimeAnimatorController GetPlayerAnimation()
+    {
+        return playerAnimation;
     }
 
     public LevelManager(float score) {

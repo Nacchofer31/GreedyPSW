@@ -8,6 +8,7 @@ public class Map : MonoBehaviour
 {
     public bool IsPaused;
     public bool PlayerSelected;
+    //public Animator animacion;
     public MissionController missionController;
 
     [Header ("Level UI")]
@@ -21,8 +22,6 @@ public class Map : MonoBehaviour
 
     public CountDownTimer timeCounter;
 
-
-
     public Character_mov player;
     public GameObject PauseMenuUI;
     public GameObject PowersUI;
@@ -33,6 +32,7 @@ public class Map : MonoBehaviour
     //private variables
     private SoundManager soundManager;
     private LevelManager levelManager;
+    private Animator animacion;
     private float levelScore;
     private float timeSpent;
     private string nextLevel;
@@ -101,7 +101,7 @@ public class Map : MonoBehaviour
 
     void checkPowerUsed()
     {
-        if (!player.getPowerUpUsed())
+        if (!player.GetPowerUpUsed())
         {
             float reward = missionController.getReward();
             addLevelScore(reward);
@@ -110,7 +110,7 @@ public class Map : MonoBehaviour
 
     void checkDamaged()
     {
-        if (!player.getDamaged())
+        if (!player.GetDamaged())
         {
             float reward = missionController.getReward();
             addLevelScore(reward);
@@ -125,11 +125,9 @@ public class Map : MonoBehaviour
             PlayerSelected = false;
         }
         else
-        {
-           
+        { 
             PlayerSelected = true;
         }
-        //Tecla();
     }
 
     void Tecla()

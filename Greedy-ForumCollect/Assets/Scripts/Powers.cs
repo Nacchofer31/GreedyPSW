@@ -43,7 +43,7 @@ public class Powers : MonoBehaviour
     {
         if(superSpeed)
         {
-            Player.RunSpeed += 0.2f;
+            Player.IncrementRunSpeed(0.2f);
             Invoke("SPOff", 1);
         }
     }
@@ -51,6 +51,6 @@ public class Powers : MonoBehaviour
     public void SPOff()
     {
         Debug.Log("-hola");
-        Player.RunSpeed += -0.2f;
+        Player.IncrementRunSpeed(-0.2f);
     }
 }

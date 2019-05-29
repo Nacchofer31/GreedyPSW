@@ -6,27 +6,10 @@ using UnityEngine.UI;
 
 public class Character_mov : MonoBehaviour {
 
-    GameOver GameOverScene;
-    //Initial variables
-    private Vector2 direction = Vector2.zero;
-    private Vector2 InitialPosition;
-    private float currentHealth;
-    private bool SuperSpeedOn = false;
-    private bool Invencibility = false;
-    private bool PowerUpUsed = false;
-    private bool damaged = false;
-
-
-    int life;
-
-    [Header("Physics")]
-    Rigidbody2D rb;
-    Animator animations;
-
-    private readonly float PrevRunSpeed = 0.7f;
-    public float RunSpeed;
+    [Header("Interactions")]
     public Map map;
 
+    [Header("UI")]
     public GameObject Lifes;
     public GameObject Foods;
     public Interactable focus;
@@ -41,25 +24,78 @@ public class Character_mov : MonoBehaviour {
     public AudioClip hurtSound;
 
     [Header("Powers")]
-    public Powers powers;
+    private Powers powers;
 
-    public void damagedByTrap()
+    [Header("Initial Variables")]
+    private float RunSpeed = 0.7f;
+    private int life = 3;
+    private readonly float PrevRunSpeed = 0.7f;
+    private float currentHealth;
+
+    [Header("Movement")]
+    private Vector2 direction = Vector2.zero;
+    private Vector2 InitialPosition;
+
+    [Header("Physics")]
+    Rigidbody2D rb;
+    Animator animations;
+
+    [Header("Scenes")]
+    private GameOver GameOverScene;
+
+    [Header("State")]
+    private bool SuperSpeedOn = false;
+    private bool PowerUpUsed = false;
+    private bool damaged = false;
+
+    public bool GetPowerUpUsed()
     {
-        currentHealth = healthBar.getSize();
-        Invoke("StopDying", 1.5f);
+        return PowerUpUsed;
+    }
+
+    public bool GetDamaged()
+    {
+        return damaged;
+    }
+
+    public void LifeUp()
+    {
+        if (life < 3)
+        {
+            RestartHealth();
+            Lifes.transform.Find("Life_" + (life + 1).ToString()).gameObject.SetActive(true);
+            life++;
+        }
+    }
+
+    public void Hurt(float damage)
+    {
+        currentHealth += damage;
+        healthBar.setSize(currentHealth);
+        OnMusicPlaying(hurtSound);
+        animations.SetBool("IsHurting", true);
+        if (currentHealth >= 1)
+        {
+            Respawn();
+        }
+        else
+        {
+            Invoke("StopDying", 1f);
+        }
+    }
+
+    public void IncrementRunSpeed(float increment)
+    {
+        RunSpeed += increment;
     }
 
     void Start()
-    {
-        
+    {       
         walkingSoundEffect.pitch = 1.5f;
         animations = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         InitialPosition = rb.position;
-        life = 3;
-        healthBar.setSize(0f);
-        powers = new Powers();
-        currentHealth = 0f;
+        RestartHealth();
     }
 
     void Update()
@@ -78,26 +114,22 @@ public class Character_mov : MonoBehaviour {
         
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            direction = Vector2.up;
-            
+            direction = Vector2.up;            
         }
 
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            direction = Vector2.down;
-            
+            direction = Vector2.down;            
         }
 
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            direction = Vector2.right;
-            
+            direction = Vector2.right;           
         }
 
         else if (Input.GetKey(KeyCode.LeftArrow))
         { 
-            direction = Vector2.left;
-            
+            direction = Vector2.left;           
         }
 
         else if (Input.GetKey(KeyCode.Space))
@@ -110,39 +142,14 @@ public class Character_mov : MonoBehaviour {
                 CaloriesScript.caloriesValue += fruit.calories;
                 map.addLevelScore((float)fruit.calories);
 
-                if (CaloriesScript.caloriesValue >= 100) { healthBar.setSize(healthBar.getSize() - 0.1f); CaloriesScript.caloriesValue = 0; }
+                if (CaloriesScript.caloriesValue >= 100)
+                {
+                    healthBar.setSize(healthBar.getSize() - 0.1f);
+                    CaloriesScript.caloriesValue = 0;
+                }
 
                 focus.Interact();
                 RemoveFocus();
-            }
-
-        }
-
-        else if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            if(!powers.invencibility)
-            {
-                powers.StartInvulnerable();
-                Debug.Log("Invecibility ON");
-            }
-            else
-            {
-                powers.StopInvulnerable();
-                Debug.Log("Invecibility OFF");
-            }
-        }
-
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            if (!SuperSpeedOn)
-            {
-                RunSpeed += powers.StartSuperSpeed();
-                Debug.Log("SuperSpeed ON");
-            }
-            else
-            {
-                RunSpeed += powers.StopSuperSpeed();
-                Debug.Log("SuperSpeed OFF");
             }
         }
 
@@ -187,9 +194,7 @@ public class Character_mov : MonoBehaviour {
                 animations.SetBool("IsRunning", false);
             }
             GetComponent<AudioSource>().Pause();
-
-        }
-        
+        }       
     }
 
     void Orientation()
@@ -218,7 +223,7 @@ public class Character_mov : MonoBehaviour {
             {
                 powers.StartInvulnerable();
                 Die();
-                healthBar.setSize(0f);
+                RestartHealth();
             }
 
             else
@@ -226,18 +231,15 @@ public class Character_mov : MonoBehaviour {
                 enemy_ia Enemy = (enemy_ia) other.gameObject.GetComponent<enemy_ia>();
                 KillEnemy(Enemy);
                 map.ShieldUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            }
-                
+            }               
         }
 
        if (other.gameObject.CompareTag("ExplodingTrap")) {
             damaged = true;
-           if (!powers.invencibility)
+            if (!powers.invencibility)
             {
-                OnMusicPlaying(explosionSound);
-                
+                OnMusicPlaying(explosionSound);               
             }
-
         }
 
         if (other.gameObject.CompareTag("Food"))
@@ -255,8 +257,6 @@ public class Character_mov : MonoBehaviour {
         if (other.gameObject.CompareTag("Power-Up"))
         {
             Item newFocus = other.GetComponent<Item>();
-            Debug.Log(newFocus.name);
-            //SetFocus(newFocus);
             focus = newFocus;
             if (newFocus.name == "Boots")
             {
@@ -280,7 +280,7 @@ public class Character_mov : MonoBehaviour {
 
                 newFocus.gameObject.SetActive(false);
                 newFocus.Interact();
-
+                RemoveFocus();
             }
 
             else if (newFocus.name == "Heart")
@@ -292,30 +292,12 @@ public class Character_mov : MonoBehaviour {
                     Lifes.transform.Find("Life_" + (4 - life).ToString()).gameObject.SetActive(true);
                     newFocus.gameObject.SetActive(false);
                     newFocus.Interact();
-                }
-                
+                    RemoveFocus();
+                }               
             }
         }
     }
 
-    public void Hurt(float damage)
-    {
-        currentHealth += damage;
-        healthBar.setSize(currentHealth);
-        OnMusicPlaying(hurtSound);
-        animations.SetBool("IsHurting", true);
-        Debug.Log(currentHealth.ToString());
-        if (currentHealth >= 1)
-        {
-            Respawn();
-        }
-        else
-        {            
-            Invoke("StopDying", 1f);
-        }
-        
-
-    }
     void Die()
     {
         Hurt(0f);
@@ -332,32 +314,26 @@ public class Character_mov : MonoBehaviour {
     {
         if(life > 1)
         {
-            currentHealth = 0f;
+            RestartHealth();
             Lifes.transform.Find("Life_" + (4-life).ToString()).gameObject.SetActive(false);
             life--;
             
             rb.transform.position = InitialPosition;
             Invoke("StopDying", 1f);
         }
+
         else
         {
-            Debug.Log("You Died");
             CaloriesScript.caloriesValue = 0;
             PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene("GameOver");
-        }
-        
+        }       
     }
 
-    public void LifeUp()
+    void RestartHealth()
     {
-        if(life < 3)
-        {
-            currentHealth = 0f;
-            healthBar.setSize(currentHealth);
-            Lifes.transform.Find("Life_" + (4 - life + 1).ToString()).gameObject.SetActive(true);
-            life++;
-        }
+        currentHealth = 0f;
+        healthBar.setSize(0f);
     }
 
     void StopDying()
@@ -375,10 +351,8 @@ public class Character_mov : MonoBehaviour {
             }
             focus = newFocus;
         }
- 
-        newFocus.onFocused(transform);
-        
 
+        newFocus.onFocused(transform);
     }
 
     void RemoveFocus()
@@ -396,15 +370,16 @@ public class Character_mov : MonoBehaviour {
         if(focus != null)
         {
             float distance = Vector3.Distance(transform.position, focus.transform.position);
+
             if (distance - 1f > focus.radius)
             {
                 RemoveFocus();
             }
         }
+
         if(FoodFocus != null)
         {
             float distance = Vector3.Distance(transform.position, FoodFocus.transform.position);
-            Debug.Log(distance.ToString());
             if (distance -5f > FoodFocus.radius * 2)
             {
                 FoodFocus.onDefocused();
@@ -412,7 +387,9 @@ public class Character_mov : MonoBehaviour {
             }
         }
     }
-    private void OnMusicPlaying(AudioClip clip) {
+
+    void OnMusicPlaying(AudioClip clip)
+    {
         SoundManager.instance.PlaySingle(clip);
     }
 
@@ -422,15 +399,5 @@ public class Character_mov : MonoBehaviour {
         SuperSpeedOn = false;
         animations.SetBool("IsRunning", false);
         map.BootsUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-    }
-
-    public bool getPowerUpUsed()
-    {
-        return PowerUpUsed;
-    }
-
-    public bool getDamaged()
-    {
-        return damaged;
     }
 }

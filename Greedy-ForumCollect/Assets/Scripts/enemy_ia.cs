@@ -4,30 +4,27 @@ using UnityEngine;
 
 public class enemy_ia : MonoBehaviour{
 
-    private float temporizadorUltimaDireccion;
-    //private readonly float temporizadorCambioDeDireccion = 3f;
-    public Vector2 direccion = Vector2.zero;
+    [Header("Movement")]
+    private Vector2 direccion = Vector2.zero;
     private Vector2 movimientoPorSegundo;
 
-    [Header("Basic Elements")]
-    public Vector2 InitialPosition;
+    [Header("Initial variables")]
+    private Vector2 InitialPosition;
+    private float runSpeed = 0.5f;
 
-    public Node ActualNode, TargetNode;
-
-    public float runSpeed = 0.5f;
+    [Header("Physics")]
     Rigidbody2D rb;
 
-    public int error = 0;
+    [Header("Nodes")]
+    public Node ActualNode, TargetNode;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         InitialPosition = rb.transform.position;
-        temporizadorUltimaDireccion = 0f;
         ChooseNewNode(ActualNode);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();  
@@ -40,7 +37,6 @@ public class enemy_ia : MonoBehaviour{
 
     void ChooseNextMove()
     {
-         direccion = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized;
          movimientoPorSegundo = direccion * runSpeed;  
     }
 
@@ -53,7 +49,6 @@ public class enemy_ia : MonoBehaviour{
         }
         
     }
-
 
     void Orientation()
     {
@@ -83,7 +78,6 @@ public class enemy_ia : MonoBehaviour{
 
         else if(other.gameObject.CompareTag("Enemy"))
         {
-            //movimientoPorSegundo = movimientoPorSegundo * -1;
             direccion = direccion * -1;
             ChooseNextMove();
         }
@@ -101,7 +95,6 @@ public class enemy_ia : MonoBehaviour{
             {
                 if(newNode.Position.x == ActualNode.Position.x)
                 {
-
                     if (newNode.Position.y < ActualNode.Position.y)
                     {
                         direccion = Vector2.down;
@@ -111,6 +104,7 @@ public class enemy_ia : MonoBehaviour{
                         direccion = Vector2.up;
                     }
                 }
+
                 else
                 {
                     if (newNode.Position.x < ActualNode.Position.x)
@@ -123,11 +117,11 @@ public class enemy_ia : MonoBehaviour{
                         direccion = Vector2.right;
                         transform.localScale = new Vector3(0.23215f, 0.23215f, 0.23215f);
                     }
-                }         
+                }  
+                
                 movimientoPorSegundo = direccion * runSpeed;
                 NewPosition = true;
-                TargetNode = newNode;
-                
+                TargetNode = newNode;   
             }
         }
     }
