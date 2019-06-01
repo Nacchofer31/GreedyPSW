@@ -96,6 +96,7 @@ public class Character_mov : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         InitialPosition = rb.position;
         RestartHealth();
+        powers = new Powers();
     }
 
     void Update()

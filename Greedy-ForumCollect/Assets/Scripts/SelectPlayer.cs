@@ -50,7 +50,7 @@ public class SelectPlayer : MonoBehaviour
     public void Blue()
     {
         myAnimator.runtimeAnimatorController = BluePlayer;
-        levelManager.SetPlayerAnimation(BluePlayer);
+        //levelManager.SetPlayerAnimation(BluePlayer);
         
         StartGame();
     }
@@ -58,7 +58,7 @@ public class SelectPlayer : MonoBehaviour
     public void Green()
     {
         myAnimator.runtimeAnimatorController = GreenPlayer;
-        levelManager.SetPlayerAnimation(GreenPlayer);
+        //levelManager.SetPlayerAnimation(GreenPlayer);
 
         StartGame();
     }
@@ -66,7 +66,7 @@ public class SelectPlayer : MonoBehaviour
     public void Red()
     {
         myAnimator.runtimeAnimatorController = RedPlayer;
-        levelManager.SetPlayerAnimation(RedPlayer);
+        //levelManager.SetPlayerAnimation(RedPlayer);
 
         StartGame();
     }
@@ -74,7 +74,7 @@ public class SelectPlayer : MonoBehaviour
     public void Yellow()
     {
         myAnimator.runtimeAnimatorController = YellowPlayer;
-        levelManager.SetPlayerAnimation(YellowPlayer);
+        //levelManager.SetPlayerAnimation(YellowPlayer);
 
         StartGame();
     }
