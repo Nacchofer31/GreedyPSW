@@ -71,16 +71,19 @@ public class Character_mov : MonoBehaviour {
     public void Hurt(float damage)
     {
         currentHealth += damage;
-        healthBar.setSize(currentHealth);
-        OnMusicPlaying(hurtSound);
-        animations.SetBool("IsHurting", true);
-        if (currentHealth >= 1)
+        if (healthBar != null)
         {
-            Respawn();
-        }
-        else
-        {
-            Invoke("StopDying", 1f);
+            healthBar.setSize(currentHealth);
+            OnMusicPlaying(hurtSound);
+            animations.SetBool("IsHurting", true);
+            if (currentHealth >= 1)
+            {
+                Respawn();
+            }
+            else
+            {
+                Invoke("StopDying", 1f);
+            }
         }
     }
 
@@ -89,7 +92,7 @@ public class Character_mov : MonoBehaviour {
         RunSpeed += increment;
     }
 
-    void Start()
+    public void Start()
     {       
         walkingSoundEffect.pitch = 1.5f;
         animations = gameObject.GetComponent<Animator>();
@@ -110,7 +113,7 @@ public class Character_mov : MonoBehaviour {
         FocusOut();
     }
 
-    void Tecla()
+    public void Tecla()
     {
         
         if (Input.GetKey(KeyCode.UpArrow))
@@ -165,7 +168,7 @@ public class Character_mov : MonoBehaviour {
         Move();
     }
 
-    void Move()
+    public void Move()
     {
         if(!map.IsPaused && direction != Vector2.zero)
         {
@@ -216,7 +219,7 @@ public class Character_mov : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
@@ -392,6 +395,16 @@ public class Character_mov : MonoBehaviour {
     void OnMusicPlaying(AudioClip clip)
     {
         SoundManager.instance.PlaySingle(clip);
+    }
+
+    public int getLifes()
+    {
+        return life;
+    }
+
+    public float getCurrentHealth()
+    {
+        return currentHealth;
     }
 
     void SPOff()

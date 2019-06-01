@@ -40,7 +40,7 @@ public class enemy_ia : MonoBehaviour{
          movimientoPorSegundo = direccion * runSpeed;  
     }
 
-    void Move()
+    public void Move()
     {
         if (transform.position != TargetNode.transform.position)
         {
