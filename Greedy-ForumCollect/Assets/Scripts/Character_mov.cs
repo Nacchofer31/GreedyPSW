@@ -28,7 +28,7 @@ public class Character_mov : MonoBehaviour {
 
     [Header("Initial Variables")]
     private float RunSpeed = 0.7f;
-    private int life = 3;
+    private int numLifes = 3;
     private readonly float PrevRunSpeed = 0.7f;
     private float currentHealth;
 
@@ -60,11 +60,11 @@ public class Character_mov : MonoBehaviour {
 
     public void LifeUp()
     {
-        if (life < 3)
+        if (numLifes < 3)
         {
             RestartHealth();
-            Lifes.transform.Find("Life_" + (life + 1).ToString()).gameObject.SetActive(true);
-            life++;
+            Lifes.transform.Find("Life_" + (numLifes + 1).ToString()).gameObject.SetActive(true);
+            numLifes++;
         }
     }
 
@@ -290,10 +290,10 @@ public class Character_mov : MonoBehaviour {
             else if (newFocus.name == "Heart")
             {
                 Powers power = newFocus.GetComponent<Powers>();
-                if (life < 3)
+                if (numLifes < 3)
                 {
-                    life++;
-                    Lifes.transform.Find("Life_" + (4 - life).ToString()).gameObject.SetActive(true);
+                    numLifes++;
+                    Lifes.transform.Find("Life_" + (4 - numLifes).ToString()).gameObject.SetActive(true);
                     newFocus.gameObject.SetActive(false);
                     newFocus.Interact();
                     RemoveFocus();
@@ -316,11 +316,11 @@ public class Character_mov : MonoBehaviour {
 
     void Respawn()
     {
-        if(life > 1)
+        if(numLifes > 1)
         {
             RestartHealth();
-            Lifes.transform.Find("Life_" + (4-life).ToString()).gameObject.SetActive(false);
-            life--;
+            Lifes.transform.Find("Life_" + (4-numLifes).ToString()).gameObject.SetActive(false);
+            numLifes--;
             
             rb.transform.position = InitialPosition;
             Invoke("StopDying", 1f);
@@ -399,7 +399,7 @@ public class Character_mov : MonoBehaviour {
 
     public int getLifes()
     {
-        return life;
+        return numLifes;
     }
 
     public float getCurrentHealth()
