@@ -75,7 +75,7 @@ public class LevelManager : MonoBehaviour
         }
         else if (instance != this)
         {
-        //    Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
 
