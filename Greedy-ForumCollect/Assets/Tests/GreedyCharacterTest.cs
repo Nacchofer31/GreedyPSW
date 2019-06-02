@@ -28,13 +28,12 @@ namespace Tests
         }
 
         [Test]
-        public void TestGuardianAttack()
+        public void TestPowerUpUsed()
         {
-            GameObject enemy = (GameObject)Resources.Load("Tests/Enemy_1");
-            GameObject enemyInstance = Object.Instantiate(enemy, new Vector2(0, 0), Quaternion.identity);
-            enemy_ia enemyMovement = enemyInstance.GetComponent<enemy_ia>();
-            
-            Assert.AreEqual(movement.getLifes(), 3);
+            GameObject boots = (GameObject)Resources.Load("Tests/Boots");
+            GameObject bootsInstance = Object.Instantiate(boots, new Vector2(0, 0), Quaternion.identity);
+            bool powerUpUsed = movement.GetPowerUpUsed();
+            Assert.AreEqual(powerUpUsed, false);
         }
 
         [Test]
@@ -45,5 +44,10 @@ namespace Tests
             Assert.AreEqual(currentDamageLevel+20,movement.getCurrentHealth());
         }
 
+        [Test]
+        public void TestDestroyGuardian()
+        {
+            
+        }
     }
 }

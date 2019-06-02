@@ -309,7 +309,7 @@ public class Character_mov : MonoBehaviour {
         powers.StopInvulnerable();
     }
 
-    void KillEnemy(enemy_ia other)
+    public void KillEnemy(enemy_ia other)
     {
         other.Restart();
     }

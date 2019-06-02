@@ -132,4 +132,9 @@ public class enemy_ia : MonoBehaviour{
         Start();
     }
 
+    public Vector2 getInitialPosition()
+    {
+        return InitialPosition;
+    }
+
 }
