@@ -47,7 +47,13 @@ namespace Tests
         [Test]
         public void TestDestroyGuardian()
         {
-            
+            GameObject enemy = (GameObject)Resources.Load("Tests/Enemy_1");
+            GameObject enemyInstance = Object.Instantiate(enemy, new Vector2(0, 0), Quaternion.identity);
+            enemy_ia enemyIA = enemyInstance.GetComponent<enemy_ia>();
+            Vector2 posEnemy = enemyIA.transform.position;
+
+            movement.KillEnemy(enemyIA);
+            Assert.AreEqual(enemyIA.getInitialPosition(), posEnemy);
         }
     }
 }
