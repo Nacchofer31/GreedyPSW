@@ -8,7 +8,6 @@ public class Map : MonoBehaviour
 {
     public bool IsPaused;
     public bool PlayerSelected;
-    //public Animator animacion;
     public MissionController missionController;
 
     [Header ("Level UI")]
@@ -47,18 +46,24 @@ public class Map : MonoBehaviour
         levelScore += value;
     }
 
-
     public void getNextlevel(string level) {
         timeSpent = timeCounter.getTime();
-        if(thisLevel == "Level1") {
+
+        if(thisLevel == "Level1")
+        {
             checkTimeOutMission();
         }
-        if (thisLevel == "Level2") {
+
+        if (thisLevel == "Level2")
+        {
             checkTimeOutMission();
         }
-        if (thisLevel == "Level3") {
+
+        if (thisLevel == "Level3")
+        {
             checkPowerUsed();
         }
+
         if (thisLevel == "Level4")
         {
             checkPowerUsed();
@@ -68,6 +73,7 @@ public class Map : MonoBehaviour
         levelManager.updateTotalScore(levelScore);
         SceneManager.LoadScene(nextLevel);
     }
+
     public void loadCongratulationsScreen() {
         levelManager.loadCongratulationsScreen();
 
@@ -87,7 +93,6 @@ public class Map : MonoBehaviour
             IsPaused = false;
             Time.timeScale = 1f;
         }
-
     }
 
     void checkTimeOutMission() {
@@ -161,15 +166,6 @@ public class Map : MonoBehaviour
         {
             Time.timeScale = 0f;
             IsPaused = true;
-        }
-
-    }
-
-    void ActiveUI(int type)
-    {
-        switch(type)
-        {
-            //case 0:  
         }
     }
 }
