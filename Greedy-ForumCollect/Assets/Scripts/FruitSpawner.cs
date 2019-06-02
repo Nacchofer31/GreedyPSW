@@ -11,14 +11,17 @@ public class FruitSpawner : MonoBehaviour
     public Sprite Sprite_selected;
     public int calories;
 
-    // Start is called before the first frame update
     void Start()
     {
         rand = Random.Range(0, Sprite_Pic.Length);
         Sprite_selected = Sprite_Pic[rand];
         GetComponent<SpriteRenderer>().sprite = Sprite_selected;
-        Debug.Log(Sprite_selected.name.Substring(4, 1));
-        switch (Sprite_selected.name.Substring(4,1))
+        setCalories(Sprite_selected.name.Substring(4, 1));
+    }
+
+    void setCalories(string calText)
+    {
+        switch (calText)
         {
             case "S":
                 calories = 40;
@@ -30,7 +33,6 @@ public class FruitSpawner : MonoBehaviour
                 calories = 10;
                 break;
         }
-
     }
 
 }
