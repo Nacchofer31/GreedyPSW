@@ -382,6 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ec80addd8690844a29db35055d328c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnimation: {fileID: 0}
   map: {fileID: 1945334801}
   NewScore: {fileID: 0}
   rankingScore: 0
@@ -1289,7 +1290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5500b1d08f04f40b903766d39defe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RunSpeed: 0.7
   map: {fileID: 1945334801}
   Lifes: {fileID: 701953907}
   Foods: {fileID: 2079458655}
@@ -1301,7 +1301,6 @@ MonoBehaviour:
   walkingSoundEffect: {fileID: 238673062}
   eatingSound: {fileID: 8300000, guid: 5b8dfeba149445c46be3eed98e9baad9, type: 3}
   hurtSound: {fileID: 8300000, guid: b14ef332d9e55e0488d32a20292a42fb, type: 3}
-  powers: {fileID: 0}
 --- !u!50 &238673057
 Rigidbody2D:
   serializedVersion: 4
@@ -5249,12 +5248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e014be56c2fda4b9c94d172396138741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direccion: {x: 0, y: 0}
-  InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 537192402}
   TargetNode: {fileID: 0}
-  runSpeed: 0.3
-  error: 0
 --- !u!58 &991244026
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -21946,12 +21941,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e014be56c2fda4b9c94d172396138741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direccion: {x: 0, y: 0}
-  InitialPosition: {x: 0, y: 0}
   ActualNode: {fileID: 1820691236}
   TargetNode: {fileID: 0}
-  runSpeed: 0.3
-  error: 0
 --- !u!70 &1576495685
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -23452,6 +23443,7 @@ MonoBehaviour:
   missionController: {fileID: 1521390719}
   scoreText: {fileID: 816358099}
   fruitsText: {fileID: 1740079916}
+  caloriesText: {fileID: 1137829190}
   ShieldUI: {fileID: 597018529}
   BootsUI: {fileID: 2108163261}
   FireUI: {fileID: 1287125060}

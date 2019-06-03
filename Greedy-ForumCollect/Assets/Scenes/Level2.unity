@@ -23657,6 +23657,7 @@ MonoBehaviour:
   missionController: {fileID: 619243804}
   scoreText: {fileID: 2143089628}
   fruitsText: {fileID: 601053488}
+  caloriesText: {fileID: 1137829190}
   ShieldUI: {fileID: 1350686247}
   BootsUI: {fileID: 1876951654}
   FireUI: {fileID: 350645074}

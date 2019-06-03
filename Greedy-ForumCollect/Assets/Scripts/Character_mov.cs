@@ -234,6 +234,7 @@ public class Character_mov : MonoBehaviour {
             {
                 enemy_ia Enemy = (enemy_ia) other.gameObject.GetComponent<enemy_ia>();
                 KillEnemy(Enemy);
+                powers.invencibility = false;
                 map.ShieldUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             }               
         }
