@@ -13,30 +13,7 @@ public class FruitsText : MonoBehaviour
 
     private string nextScene;
     private int numberOfFruits;
-    /**
-    public FruitsText() {
-        if (SceneManager.GetActiveScene().name == "Level1")
-        {
-            numberOfFruits = 4;
-
-        }
-        else if (SceneManager.GetActiveScene().name == "Level2") {
-            numberOfFruits = 8;
-        }
-        else if (SceneManager.GetActiveScene().name == "Level3")
-        {
-            numberOfFruits = 12;
-        }
-        else if (SceneManager.GetActiveScene().name == "Level4")
-        {
-            numberOfFruits = 16;
-        }
-        else if (SceneManager.GetActiveScene().name == "Level5")
-        {
-            numberOfFruits = 20;
-        }
-    }
-    */
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -53,8 +30,6 @@ public class FruitsText : MonoBehaviour
             nextLevel();
         }
     }
-
-
 
     public void fruitConsumed() {
         numberOfFruits--;

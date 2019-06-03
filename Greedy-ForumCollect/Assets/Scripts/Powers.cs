@@ -28,9 +28,6 @@ public class Powers : MonoBehaviour
     {
         superSpeed = true;
         return 0.2f;
-
-        //Player.RunSpeed += 0.2f;
-        //return 0.2f;
     }
 
     public float StopSuperSpeed()
@@ -50,7 +47,6 @@ public class Powers : MonoBehaviour
 
     public void SPOff()
     {
-        Debug.Log("-hola");
         Player.IncrementRunSpeed(-0.2f);
     }
 }

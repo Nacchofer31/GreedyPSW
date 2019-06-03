@@ -95,26 +95,7 @@ public class Generator : MonoBehaviour
 
     void Update()
     {
-        /*if(SpawnTime.getTime() % 15 == 0)
-        {
-            int type = Random.Range(0, 2);
-            do
-            {
-                node = Random.Range(0, 65);
-            } while (Nodes[node].GetBusy());
-
-            switch (type)
-            {
-                case 0: Generate("Boots", node);
-                    break;
-                case 1: Generate("Shield", node);
-                    break;
-                case 2: Generate("Bomb", node);
-                    break;
-                case 3: Generate("Fire", node);
-                    break;
-            }
-        }*/
+        
     }
 
     void Generate(string name, int pos_node)

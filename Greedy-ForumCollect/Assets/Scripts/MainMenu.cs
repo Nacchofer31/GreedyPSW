@@ -14,7 +14,6 @@ public class MainMenu : MonoBehaviour
         LevelManager.SetTotalScore(0);
     }
     public void QuitGame() {
-        Debug.Log("QUIT!");
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #endif

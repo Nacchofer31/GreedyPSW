@@ -53,22 +53,11 @@ public class PauseMenu : MonoBehaviour
         AudioListener.pause = true;
     }
 
-    private void FixedUpdate()
-    {
-
-    }
-
     public void LoadMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
         AudioListener.pause = false;
     }
-
-    public void Save()
-    {
-
-    }
-
 
 }
