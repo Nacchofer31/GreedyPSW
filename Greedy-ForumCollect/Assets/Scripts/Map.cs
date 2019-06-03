@@ -44,7 +44,7 @@ public class Map : MonoBehaviour
     }
 
     public void onCaloriesAdded(int calories) {
-        caloriesText.setCalories(calories);
+        caloriesText.incrementCalories(calories);
     }
 
     public float getLevelScore()

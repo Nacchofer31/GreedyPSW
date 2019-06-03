@@ -18207,6 +18207,7 @@ MonoBehaviour:
   focus: {fileID: 0}
   healthBar: {fileID: 465538832}
   fruitText: {fileID: 1651275020}
+  caloriesScript: {fileID: 573233676}
   FoodFocus: {fileID: 0}
   explosionSound: {fileID: 8300000, guid: ec8466a96cd5d434fb66f486dc29bbd9, type: 3}
   walkingSoundEffect: {fileID: 846079163}

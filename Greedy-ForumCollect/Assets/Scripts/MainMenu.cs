@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public LevelManager LevelManager;
+    public CaloriesScript caloriesScript;
 
     public void PlayGame() {
         SceneManager.LoadScene("Level1");
-        CaloriesScript.caloriesValue = 0;
+        caloriesScript.setCalories(0);
         LevelManager = GameObject.FindObjectOfType<LevelManager>();
         LevelManager.SetTotalScore(0);
     }

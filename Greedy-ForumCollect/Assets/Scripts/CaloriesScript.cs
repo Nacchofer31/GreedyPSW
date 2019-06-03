@@ -5,12 +5,22 @@ using UnityEngine.UI;
 
 public class CaloriesScript : MonoBehaviour
 {
-    public static int caloriesValue = 0;
+    private static int caloriesValue = 0;
     Text caloriesText;
 
-    public void setCalories(int value) {
+    public void incrementCalories(int value) {
         caloriesValue += value;
     }
+
+    public int getCalories() {
+        return caloriesValue;
+    }
+
+    public void setCalories(int newCaloriesValue)
+    {
+        caloriesValue = newCaloriesValue;
+    }
+
 
     // Start is called before the first frame update
     void Start()

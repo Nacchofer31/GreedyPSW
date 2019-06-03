@@ -15,6 +15,7 @@ public class Character_mov : MonoBehaviour {
     public Interactable focus;
     public HealthBar healthBar;
     public FruitsText fruitText;
+    public CaloriesScript caloriesScript;
     public Item FoodFocus;
 
     [Header("Character Sounds")]
@@ -146,10 +147,11 @@ public class Character_mov : MonoBehaviour {
                 map.onCaloriesAdded(fruit.calories);
                 map.addLevelScore((float)fruit.calories);
 
-                if (CaloriesScript.caloriesValue >= 100)
+                int actualCalories = caloriesScript.getCalories();
+                if (actualCalories >= 100)
                 {
                     healthBar.setSize(healthBar.getSize() - 0.1f);
-                    CaloriesScript.caloriesValue = 0;
+                    caloriesScript.setCalories(0);
                 }
 
                 focus.Interact();
@@ -329,7 +331,7 @@ public class Character_mov : MonoBehaviour {
 
         else
         {
-            CaloriesScript.caloriesValue = 0;
+            caloriesScript.setCalories(0);
             PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene("GameOver");
         }       
