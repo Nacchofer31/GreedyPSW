@@ -142,8 +142,8 @@ public class Character_mov : MonoBehaviour {
             {
                 FruitSpawner fruit = focus.GetComponent<FruitSpawner>();
                 OnMusicPlaying(eatingSound);
-                fruitText.fruitConsumed();
-                CaloriesScript.caloriesValue += fruit.calories;
+                map.onFruitConsumed();
+                map.onCaloriesAdded(fruit.calories);
                 map.addLevelScore((float)fruit.calories);
 
                 if (CaloriesScript.caloriesValue >= 100)

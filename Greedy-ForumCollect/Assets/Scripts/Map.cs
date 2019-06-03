@@ -13,6 +13,7 @@ public class Map : MonoBehaviour
     [Header ("Level UI")]
     public ScoreText scoreText;
     public FruitsText fruitsText;
+    public CaloriesScript caloriesText;
  
 
     public GameObject ShieldUI;
@@ -37,6 +38,15 @@ public class Map : MonoBehaviour
     private string nextLevel;
     private string thisLevel;
 
+
+    public void onFruitConsumed() {
+        fruitsText.fruitConsumed();
+    }
+
+    public void onCaloriesAdded(int calories) {
+        caloriesText.setCalories(calories);
+    }
+
     public float getLevelScore()
     {
         return levelScore;
@@ -48,26 +58,7 @@ public class Map : MonoBehaviour
 
     public void getNextlevel(string level) {
         timeSpent = timeCounter.getTime();
-
-        if(thisLevel == "Level1")
-        {
-            checkTimeOutMission();
-        }
-
-        if (thisLevel == "Level2")
-        {
-            checkTimeOutMission();
-        }
-
-        if (thisLevel == "Level3")
-        {
-            checkPowerUsed();
-        }
-
-        if (thisLevel == "Level4")
-        {
-            checkPowerUsed();
-        }
+        onActiveMission();
         levelManager.setTotalTime(timeSpent);
         nextLevel = level;
         levelManager.updateTotalScore(levelScore);
@@ -92,6 +83,28 @@ public class Map : MonoBehaviour
         {
             IsPaused = false;
             Time.timeScale = 1f;
+        }
+    }
+
+    void onActiveMission() {
+        if (thisLevel == "Level1")
+        {
+            checkTimeOutMission();
+        }
+
+        if (thisLevel == "Level2")
+        {
+            checkTimeOutMission();
+        }
+
+        if (thisLevel == "Level3")
+        {
+            checkPowerUsed();
+        }
+
+        if (thisLevel == "Level4")
+        {
+            checkPowerUsed();
         }
     }
 

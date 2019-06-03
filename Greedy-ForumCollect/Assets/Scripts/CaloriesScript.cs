@@ -7,6 +7,11 @@ public class CaloriesScript : MonoBehaviour
 {
     public static int caloriesValue = 0;
     Text caloriesText;
+
+    public void setCalories(int value) {
+        caloriesValue += value;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,4 +24,5 @@ public class CaloriesScript : MonoBehaviour
     {
         caloriesText.text = "CALORIES: " + caloriesValue;
     }
+
 }
