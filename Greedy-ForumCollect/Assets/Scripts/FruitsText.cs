@@ -17,29 +17,31 @@ public class FruitsText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        getLevelText();
-        fruitsToString();
+        GetLevelText();
+        FruitsToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        fruitsToString();
-        if (numberOfFruits == 0) {
-            nextLevel();
+        FruitsToString();
+        if (numberOfFruits == 0)
+        {
+            NextLevel();
         }
     }
 
-    public void fruitConsumed() {
+    public void FruitConsumed()
+    {
         numberOfFruits--;
     }
 
-    private void fruitsToString() {
+    private void FruitsToString()
+    {
         fruitsText.text = "FRUITS = " + numberOfFruits;
     }
 
-    private void getLevelText() {
+    private void GetLevelText() {
 
         if (SceneManager.GetActiveScene().name == "Level1")
         {
@@ -64,7 +66,7 @@ public class FruitsText : MonoBehaviour
         }
     }
 
-    private void nextLevel() {
+    private void NextLevel() {
         if (SceneManager.GetActiveScene().name != "Level_5")
         {
 
@@ -86,9 +88,10 @@ public class FruitsText : MonoBehaviour
                 nextScene = "Level_5";
             }
 
-            map.getNextlevel(nextScene);
+            map.GetNextlevel(nextScene);
         }
-        else {
+        else
+        {
             nextScene = "LevelPassed";
             map.loadCongratulationsScreen();
         }

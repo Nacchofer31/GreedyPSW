@@ -9,19 +9,15 @@ public class ScoreText : MonoBehaviour
     public Text scoreText;
     private float levelScore;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        levelScore = map.getLevelScore();
+        levelScore = map.GetLevelScore();
         scoreText.text = "SCORE: " + levelScore;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        levelScore = map.getLevelScore();
+        levelScore = map.GetLevelScore();
         printScore();
     }
 

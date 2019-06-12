@@ -9,14 +9,14 @@ public class MissionController : MonoBehaviour
     private float reward;
     private float finishingTime = 0f;
 
-    public float getFinishingTime() {
+    public float GetFinishingTime() {
         return finishingTime;
     }
 
-    public float getReward() {
+    public float GetReward() {
         return reward;
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         if (SceneManager.GetActiveScene().name == "Level1")
@@ -43,7 +43,6 @@ public class MissionController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if ((SceneManager.GetActiveScene().name == "Level1"))

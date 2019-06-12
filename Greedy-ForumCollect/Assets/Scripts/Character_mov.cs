@@ -69,6 +69,16 @@ public class Character_mov : MonoBehaviour {
         }
     }
 
+    public int getLifes()
+    {
+        return numLifes;
+    }
+
+    public float getCurrentHealth()
+    {
+        return currentHealth;
+    }
+
     public void Hurt(float damage)
     {
         currentHealth += damage;
@@ -103,16 +113,6 @@ public class Character_mov : MonoBehaviour {
         powers = new Powers();
     }
 
-    void Update()
-    {
-        Tecla();
-
-        Orientation();
-
-        Move();
-
-        FocusOut();
-    }
 
     public void Tecla()
     {
@@ -143,15 +143,15 @@ public class Character_mov : MonoBehaviour {
             {
                 FruitSpawner fruit = focus.GetComponent<FruitSpawner>();
                 OnMusicPlaying(eatingSound);
-                map.onFruitConsumed();
-                map.onCaloriesAdded(fruit.calories);
-                map.addLevelScore((float)fruit.calories);
+                map.OnFruitConsumed();
+                map.OnCaloriesAdded(fruit.calories);
+                map.AddLevelScore((float)fruit.calories);
 
-                int actualCalories = caloriesScript.getCalories();
+                int actualCalories = caloriesScript.GetCalories();
                 if (actualCalories >= 100)
                 {
                     healthBar.setSize(healthBar.getSize() - 0.1f);
-                    caloriesScript.setCalories(0);
+                    caloriesScript.SetCalories(0);
                 }
 
                 focus.Interact();
@@ -207,14 +207,12 @@ public class Character_mov : MonoBehaviour {
     {
         if (!map.IsPaused)
         {
-
             if (direction == Vector2.right)
             {
                 transform.localScale = new Vector3(0.23215f, 0.23215f, 1);
             }
 
             else if (direction == Vector2.left)
-
             {
                 transform.localScale = new Vector3(-0.23215f, 0.23215f, 1);
             }
@@ -305,16 +303,27 @@ public class Character_mov : MonoBehaviour {
         }
     }
 
+    public void KillEnemy(enemy_ia other)
+    {
+        other.Restart();
+    }
+
+    void Update()
+    {
+        Tecla();
+
+        Orientation();
+
+        Move();
+
+        FocusOut();
+    }
+
     void Die()
     {
         Hurt(0f);
         Respawn();
         powers.StopInvulnerable();
-    }
-
-    public void KillEnemy(enemy_ia other)
-    {
-        other.Restart();
     }
 
     void Respawn()
@@ -331,7 +340,7 @@ public class Character_mov : MonoBehaviour {
 
         else
         {
-            caloriesScript.setCalories(0);
+            caloriesScript.SetCalories(0);
             PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene("GameOver");
         }       
@@ -398,16 +407,6 @@ public class Character_mov : MonoBehaviour {
     void OnMusicPlaying(AudioClip clip)
     {
         SoundManager.instance.PlaySingle(clip);
-    }
-
-    public int getLifes()
-    {
-        return numLifes;
-    }
-
-    public float getCurrentHealth()
-    {
-        return currentHealth;
     }
 
     void SPOff()

@@ -15,8 +15,7 @@ public class LevelManager : MonoBehaviour
     private int lastSceneToLoad;
     private float totalTime;
 
-    //get and set for score
-    public float getTotalScore()
+    public float GetTotalScore()
     {
         return totalScore;
     }
@@ -26,15 +25,19 @@ public class LevelManager : MonoBehaviour
         totalScore = score;
     }
 
-    public void updateTotalScore(float levelScore) {
+    public void UpdateTotalScore(float levelScore)
+    {
         totalScore = levelScore;
         rankingScore = totalScore;
     }
-    //get and set for time
-    public void setTotalTime(float time) {
+
+    public void SetTotalTime(float time)
+    {
         totalTime += time;
     }
-    public float getTotalTime() {
+
+    public float GetTotalTime()
+    {
         return totalTime;
     }
 
@@ -55,7 +58,7 @@ public class LevelManager : MonoBehaviour
     public void loadNewLevel(string level)
     {
         nextLevel = level;
-        updateTotalScore(map.getLevelScore());
+        UpdateTotalScore(map.GetLevelScore());
         SceneManager.LoadScene(nextLevel);
         
     }
@@ -65,7 +68,6 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(lastSceneToLoad);
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         if (instance == null)
@@ -81,31 +83,28 @@ public class LevelManager : MonoBehaviour
 
         nextLevel = SceneManager.GetActiveScene().name;
         map = GameObject.FindObjectOfType<Map>();
-        if(nextLevel == "Level1") {
+        if(nextLevel == "Level1")
+        {
             totalScore = 0;
             totalTime = 0;
         }
+
         if (map != null)
         {
-            map.addLevelScore(totalScore);
-        }
-        
-        
+            map.AddLevelScore(totalScore);
+        }     
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         if (nextLevel != SceneManager.GetActiveScene().name)
         {
             nextLevel = SceneManager.GetActiveScene().name;
             map = GameObject.FindObjectOfType<Map>();
             if (map != null)
             {
-                map.addLevelScore(totalScore);
+                map.AddLevelScore(totalScore);
             }
-
         }
     }
 

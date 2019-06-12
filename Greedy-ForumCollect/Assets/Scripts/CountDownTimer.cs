@@ -13,14 +13,11 @@ public class CountDownTimer : MonoBehaviour
         return currentTime;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        currentTime = 0f;
-        
+        currentTime = 0f;        
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!PauseMenu.IsPaused)
@@ -30,8 +27,8 @@ public class CountDownTimer : MonoBehaviour
         }
     }
 
-
-    void printTimer() {
+    void printTimer()
+    {
         countdownText.text = "TIME: " + currentTime.ToString("0");
     }
 }

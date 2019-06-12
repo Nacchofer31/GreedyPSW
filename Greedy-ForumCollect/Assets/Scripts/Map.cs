@@ -39,33 +39,53 @@ public class Map : MonoBehaviour
     private string thisLevel;
 
 
-    public void onFruitConsumed() {
-        fruitsText.fruitConsumed();
+    public void OnFruitConsumed()
+    {
+        fruitsText.FruitConsumed();
     }
 
-    public void onCaloriesAdded(int calories) {
-        caloriesText.incrementCalories(calories);
+    public void OnCaloriesAdded(int calories)
+    {
+        caloriesText.IncrementCalories(calories);
     }
 
-    public float getLevelScore()
+    public float GetLevelScore()
     {
         return levelScore;
     }
-    public void addLevelScore(float value)
+
+    public void AddLevelScore(float value)
     {
         levelScore += value;
     }
 
-    public void getNextlevel(string level) {
+    public void ChangeMode()
+    {
+        if (IsPaused)
+        {
+            Time.timeScale = 1f;
+            IsPaused = false;
+        }
+
+        else
+        {
+            Time.timeScale = 0f;
+            IsPaused = true;
+        }
+    }
+
+    public void GetNextlevel(string level)
+    {
         timeSpent = timeCounter.getTime();
         onActiveMission();
-        levelManager.setTotalTime(timeSpent);
+        levelManager.SetTotalTime(timeSpent);
         nextLevel = level;
-        levelManager.updateTotalScore(levelScore);
+        levelManager.UpdateTotalScore(levelScore);
         SceneManager.LoadScene(nextLevel);
     }
 
-    public void loadCongratulationsScreen() {
+    public void loadCongratulationsScreen()
+    {
         levelManager.loadCongratulationsScreen();
 
     }
@@ -86,99 +106,54 @@ public class Map : MonoBehaviour
         }
     }
 
-    void onActiveMission() {
+    void onActiveMission()
+    {
         if (thisLevel == "Level1")
         {
-            checkTimeOutMission();
+            CheckTimeOutMission();
         }
 
         if (thisLevel == "Level2")
         {
-            checkTimeOutMission();
+            CheckTimeOutMission();
         }
 
         if (thisLevel == "Level3")
         {
-            checkPowerUsed();
+            CheckPowerUsed();
         }
 
         if (thisLevel == "Level4")
         {
-            checkPowerUsed();
+            CheckPowerUsed();
         }
     }
 
-    void checkTimeOutMission() {
-        float finishingTime = missionController.getFinishingTime();
+    void CheckTimeOutMission()
+    {
+        float finishingTime = missionController.GetFinishingTime();
         if (timeSpent <= finishingTime)
         {
-            float reward = missionController.getReward();
-            addLevelScore(reward);
+            float reward = missionController.GetReward();
+            AddLevelScore(reward);
         }
     }
 
-    void checkPowerUsed()
+    void CheckPowerUsed()
     {
         if (!player.GetPowerUpUsed())
         {
-            float reward = missionController.getReward();
-            addLevelScore(reward);
+            float reward = missionController.GetReward();
+            AddLevelScore(reward);
         }
     }
 
-    void checkDamaged()
+    void CheckDamaged()
     {
         if (!player.GetDamaged())
         {
-            float reward = missionController.getReward();
-            addLevelScore(reward);
-        }
-    }
-
-    void Update()
-    {
-
-        if (SceneManager.GetActiveScene().name == "Level1")
-        {
-            PlayerSelected = false;
-        }
-        else
-        { 
-            PlayerSelected = true;
-        }
-    }
-
-    void Tecla()
-    {
-        if(PlayerSelected && Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (IsPaused)
-            {
-                ChangeMode();
-                PauseMenuUI.SetActive(false);
-            }
-
-            else
-            {
-                ChangeMode();
-                PauseMenuUI.SetActive(true);
-            }
-        }
-    }
-
-
-    public void ChangeMode()
-    {
-        if(IsPaused)
-        {
-            Time.timeScale = 1f;
-            IsPaused = false;
-        }
-
-        else
-        {
-            Time.timeScale = 0f;
-            IsPaused = true;
+            float reward = missionController.GetReward();
+            AddLevelScore(reward);
         }
     }
 }

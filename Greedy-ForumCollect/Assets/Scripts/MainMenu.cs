@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame() {
         SceneManager.LoadScene("Level1");
-        caloriesScript.setCalories(0);
+        caloriesScript.SetCalories(0);
         LevelManager = GameObject.FindObjectOfType<LevelManager>();
         LevelManager.SetTotalScore(0);
     }

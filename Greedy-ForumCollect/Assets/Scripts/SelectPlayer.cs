@@ -13,6 +13,8 @@ public class SelectPlayer : MonoBehaviour
 
     private Animator myAnimator;
     private LevelManager levelManager;
+
+    [Header("Animators")]
     public RuntimeAnimatorController RedPlayer;
     public RuntimeAnimatorController BluePlayer;
     public RuntimeAnimatorController GreenPlayer;

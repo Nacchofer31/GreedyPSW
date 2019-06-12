@@ -14,8 +14,8 @@ public class GameCompletedController : MonoBehaviour
     void Start()
     {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
-        totalTimeSpent = levelManager.getTotalTime();
-        totalObtainedScore = levelManager.getTotalScore();
+        totalTimeSpent = levelManager.GetTotalTime();
+        totalObtainedScore = levelManager.GetTotalScore();
         finalScoreText.text = "SCORE: " + totalObtainedScore.ToString("0");
         timeText.text = "TOTAL TIME: " + totalTimeSpent.ToString();
 
