@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FruitSpawner1 : MonoBehaviour
+public class FruitsSpawner : MonoBehaviour
 {
     public Transform foodGrid;
     public static Sprite[] Sprite_Pic;
