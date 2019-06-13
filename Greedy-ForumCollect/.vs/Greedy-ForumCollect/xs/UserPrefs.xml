@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{4F50CCF0-0549-C8FC-BD3D-0C0DCF670D35}|">
   <MonoDevelop.Ide.ItemProperties.MyAssemblyScript PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MainMenu.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/State.cs">
     <Files>
-      <File FileName="Assets/Scripts/Map.cs" Line="47" Column="50" />
-      <File FileName="Assets/Scripts/CaloriesScript.cs" Line="8" Column="36" />
-      <File FileName="Assets/Scripts/Character_mov.cs" Line="153" Column="35" />
-      <File FileName="Assets/Scripts/MainMenu.cs" Line="14" Column="35" />
+      <File FileName="Assets/Scripts/Character_mov.cs" Line="409" Column="6" />
+      <File FileName="Assets/Scripts/NormalState.cs" Line="21" Column="1" />
+      <File FileName="Assets/Scripts/PowerState.cs" Line="29" Column="38" />
+      <File FileName="Assets/Scripts/State.cs" Line="18" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

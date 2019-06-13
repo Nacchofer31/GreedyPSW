@@ -16,7 +16,7 @@ public class Character_mov : MonoBehaviour {
     public HealthBar healthBar;
     public FruitsText fruitText;
     public CaloriesScript caloriesScript;
-    public Item FoodFocus;
+    public Item FoodFocus, PowerUp;
 
     [Header("Character Sounds")]
     public AudioClip explosionSound;
@@ -28,9 +28,9 @@ public class Character_mov : MonoBehaviour {
     private Powers powers;
 
     [Header("Initial Variables")]
-    private float RunSpeed = 0.7f;
+    public float RunSpeed = 0.7f;
     private int numLifes = 3;
-    private readonly float PrevRunSpeed = 0.7f;
+    public readonly float PrevRunSpeed = 0.7f;
     private float currentHealth;
 
     [Header("Movement")]
@@ -39,13 +39,14 @@ public class Character_mov : MonoBehaviour {
 
     [Header("Physics")]
     Rigidbody2D rb;
-    Animator animations;
+    public Animator animations;
 
     [Header("Scenes")]
     private GameOver GameOverScene;
 
     [Header("State")]
-    private bool SuperSpeedOn = false;
+    private State currentState;
+    public bool SuperSpeedOn = false;
     private bool PowerUpUsed = false;
     private bool damaged = false;
 
@@ -111,8 +112,17 @@ public class Character_mov : MonoBehaviour {
         InitialPosition = rb.position;
         RestartHealth();
         powers = new Powers();
+        setState(new NormalState(this));
     }
 
+    public void setState(State state)
+    {
+        if(currentState!= null) { currentState.OnStateEnter(); }
+
+        currentState = state;
+
+        if (currentState != null) { currentState.OnStateExit(); }
+    }
 
     public void Tecla()
     {
@@ -203,7 +213,7 @@ public class Character_mov : MonoBehaviour {
         }       
     }
 
-    void Orientation()
+    public void Orientation()
     {
         if (!map.IsPaused)
         {
@@ -262,33 +272,10 @@ public class Character_mov : MonoBehaviour {
         if (other.gameObject.CompareTag("Power-Up"))
         {
             Item newFocus = other.GetComponent<Item>();
+            PowerUp = other.GetComponent<Item>();
             focus = newFocus;
-            if (newFocus.name == "Boots")
-            {
-                Powers power = newFocus.GetComponent<Powers>();
-                power.Activate();
-                SuperSpeedOn = true;
-                map.BootsUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
 
-                newFocus.gameObject.SetActive(false);
-                newFocus.Interact();
-                RemoveFocus();
-                Invoke("SPOff", 5f);
-            }
-
-            else if (newFocus.name == "Shield")
-            {
-                Powers power = newFocus.GetComponent<Powers>();
-                power.Activate();
-                powers.invencibility = true;
-                map.ShieldUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-
-                newFocus.gameObject.SetActive(false);
-                newFocus.Interact();
-                RemoveFocus();
-            }
-
-            else if (newFocus.name == "Heart")
+            if (newFocus.name == "Heart")
             {
                 Powers power = newFocus.GetComponent<Powers>();
                 if (numLifes < 3)
@@ -308,7 +295,7 @@ public class Character_mov : MonoBehaviour {
         other.Restart();
     }
 
-    void Update()
+   public void Update()
     {
         Tecla();
 
@@ -317,6 +304,8 @@ public class Character_mov : MonoBehaviour {
         Move();
 
         FocusOut();
+
+        currentState.CheckPower();
     }
 
     void Die()
@@ -371,7 +360,7 @@ public class Character_mov : MonoBehaviour {
         newFocus.onFocused(transform);
     }
 
-    void RemoveFocus()
+    public void RemoveFocus()
     {
         if (focus != null)
         {
@@ -381,7 +370,7 @@ public class Character_mov : MonoBehaviour {
         focus = null;
     }
 
-    void FocusOut()
+    public void FocusOut()
     {
         if(focus != null)
         {
@@ -415,5 +404,25 @@ public class Character_mov : MonoBehaviour {
         SuperSpeedOn = false;
         animations.SetBool("IsRunning", false);
         map.BootsUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+        setState(new NormalState(this));
+
+    }
+
+    void InvulOff()
+    {
+        map.ShieldUI.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+        powers.invencibility = false;
+        setState(new NormalState(this));
+
+    }
+
+    public void SetAnimations()
+    {
+        animations.SetBool("IsRunning", true);
+    }
+
+    public void InvulOn()
+    {
+        powers.StartInvulnerable();
     }
 }
